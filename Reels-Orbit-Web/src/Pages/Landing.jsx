@@ -11,7 +11,9 @@ import Genre from '../Components/Genre/Genre';
 import { InfinitySpin } from 'react-loader-spinner';
 import { motion } from 'framer-motion';
 import Footer from '../Components/Footer/Footer';
-import Nav from '../Components/Nav/Nav';
+import Hero from '../Components/Hero/Hero';
+import '../Components/Nav/Nav.css';
+import { Search } from 'lucide-react';
 
 
 function Landing() {
@@ -38,7 +40,7 @@ function Landing() {
 
   useEffect(() => {
     if (showLoginPopup) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'auto';
     } else {
       document.body.style.overflow = 'auto';
     }
@@ -54,7 +56,7 @@ function Landing() {
 
       const handleClickOutside = (event) => {
         if (popupRef.current && !popupRef.current.contains(event.target)) {
-          setShowLoginPopup(false);  // Close popup if clicked outside
+          setShowLoginPopup(false); 
         }
       };
 
@@ -78,6 +80,10 @@ function Landing() {
     }
   };
 
+  const handleSearchClick = () => {
+    navigate('/search');
+  };
+
   const closePopup = () => {
     setShowLoginPopup(false); 
   };
@@ -98,10 +104,23 @@ function Landing() {
   return (
     <div className="page">
       <div className={showLoginPopup ? 'blur-background' : ''}>
-        
-        <Nav/>
+      <div className='nav'>
+        <div className='logo4'>
+              <p className='reels'>Reels</p>
+              <p className='orbit'>Orbit</p>
+        </div>
+        <div className='navBtns'>
+            <p className='home'>Home</p>
+            <p>My movies</p>
+            <p>About</p>
+        </div>
+        <div className='navLeft'>
+        <Search className='search' onClick={handleSearchClick}/>
+        <p className='bt' onClick={handleButtonClick}>Bucket</p>
+        </div>
+    </div>
 
-        <button onClick={handleButtonClick}>Bucket</button>
+    <Hero/>
         <motion.div
           className="fav-movies"
           initial={{ opacity: 0, y: 50 }}
