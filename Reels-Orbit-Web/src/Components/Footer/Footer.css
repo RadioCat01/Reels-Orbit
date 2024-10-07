@@ -1,0 +1,63 @@
+.footer{
+    height: 300px;
+    background: linear-gradient(to top, rgb(24, 26, 29), rgb(24, 26, 29));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    font-family: "Fredoka", sans-serif;
+    font-size: 11px;
+
+    .p1{
+        font-weight: 600;
+        font-size: 13px;
+    }
+    p{
+        margin-left: 25px;
+        opacity: 0.8;
+    }
+}
+span {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .cr {
+        margin-right: 10px;
+        width: 13px;
+    }
+}
+.logo3{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    padding: 4px;
+    border: 1px dashed rgb(255, 255, 255);
+    opacity: 0.8;
+
+    p{
+        font-size: 22px;
+        font-weight: bolder;
+        font-family: "Dancing Script", cursive;
+    }
+
+    .reels{
+        color: rgb(255, 255, 255);
+        margin-bottom: -30px;
+        margin-right: 10px;
+    }
+    .orbit{
+        color: rgb(255, 255, 255);
+        margin-left: 10px;
+    }
+}

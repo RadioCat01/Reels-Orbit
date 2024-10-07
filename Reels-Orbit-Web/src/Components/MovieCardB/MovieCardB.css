@@ -1,0 +1,11 @@
+.movie-posterB{
+    height: 260px;
+    border-radius: 4px;
+    margin-right: 16px;
+    transition: transform 0.2s ease-in-out;
+}
+.movie-posterB:hover {
+    transform: scale(1.001);
+    filter: brightness(0.8);
+}
+  

@@ -1,27 +1,24 @@
 .blur-background {
-    filter: blur(1.5px);
+    filter: blur(4px);
   }
-  
-  /* Popup styling */
-  .popup {
+
+.popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /*background-color: rgba(0, 0, 0, 0.5); Blured bg color*/
+  
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000; 
   }
   
-  .popup-inner {
-    background-color: white;
-    width: 360px;
-    padding: 140px;
-    border-radius: 40px;
-    border: 1px solid green;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
   }
+  

@@ -1,0 +1,10 @@
+.movies-listtype2 {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.movies-listtype2::-webkit-scrollbar {
+  display: none;
+}
