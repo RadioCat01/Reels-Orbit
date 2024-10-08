@@ -24,6 +24,20 @@ function Admin() {
             setLoading(false);
         })
     }, []);
+
+    const removeUser = (userId) => {
+        axios
+          .post("http://localhost:8081/user/delete", null, {
+            params: { userId: userId },
+            withCredentials: true,
+          })
+          .then(() => {
+            setUsers((prevUsers) => prevUsers.filter((user) => user.userId !== userId));
+          })
+          .catch((error) => {
+            console.error("Error removing user:", error);
+          });
+      };
   
     if (loading) {
       return <div className="loading-container">
@@ -38,13 +52,18 @@ function Admin() {
 
   return (
     <div>
-      <h1>User List</h1>
-        {users.map((user) => (
-          <p key={user.userId}>
-           {user.userId} - {user.email}
-          </p>
-        ))}
-    </div>
+    <h1>User List</h1>
+    {users && users.length > 0 ? (
+      users.map((user) => (
+        <p key={user.userId}>
+          {user.userId} - {user.email}
+          <button onClick={() => removeUser(user.userId)}>Remove User</button>
+        </p>
+      ))
+    ) : (
+      <p>No Users</p> 
+    )}
+  </div>
   )
 }
 

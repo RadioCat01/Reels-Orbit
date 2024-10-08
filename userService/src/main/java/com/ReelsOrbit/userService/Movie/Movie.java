@@ -1,6 +1,7 @@
 package com.ReelsOrbit.userService.Movie;
 
 import com.ReelsOrbit.userService.User.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,5 +35,6 @@ public class Movie {
 
     @ManyToOne
     @JoinColumn(name = "LUser_id", referencedColumnName = "id")
+    @JsonBackReference
     private User user;
 }

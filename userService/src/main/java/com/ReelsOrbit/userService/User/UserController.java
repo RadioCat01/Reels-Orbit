@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+
 public class UserController {
 
     private final UserRepo userRepository;
@@ -26,6 +26,7 @@ public class UserController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userRepository.findAll();
@@ -35,9 +36,13 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+
+    @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
     @PostMapping("/delete")
-    public ResponseEntity<User> deleteUserById(@RequestParam String userId){
-        return ResponseEntity.ok(userService.deleteUser(userId));
+    public ResponseEntity<String> deleteUserById(@RequestParam String userId){
+
+        userService.deleteUser(userId);
+        return ResponseEntity.ok(userId);
     }
 
 }

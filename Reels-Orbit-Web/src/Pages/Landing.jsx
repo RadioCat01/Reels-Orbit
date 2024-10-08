@@ -14,6 +14,7 @@ import Footer from '../Components/Footer/Footer';
 import Hero from '../Components/Hero/Hero';
 import '../Components/Nav/Nav.css';
 import { Search } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 
 import { Link as ScrollLink, Element, scroller } from 'react-scroll';
 
@@ -114,6 +115,11 @@ function Landing() {
     setShowLoginPopup(false); 
   };
 
+  const logout = async () => {
+    window.location.reload();
+    axios.post('http://localhost:8080/logout', {}, { withCredentials: true });   
+  };
+
   if (loading) {
     return (
       <div className="loading-container">
@@ -152,6 +158,8 @@ function Landing() {
         <div className='navLeft'>
           <div className='userInfo'>
           {user?.email ? <p className='userName'>{user.email}</p> : <p className='userName'>Guest</p>}
+          {user?.email ?  <LogOut onClick={logout}/> : ''}
+          
           </div>
         <Search className='search' onClick={handleSearchClick}/>
         
