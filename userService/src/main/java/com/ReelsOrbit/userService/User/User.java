@@ -17,6 +17,7 @@ public class User {
     @Id
     @GeneratedValue
     private Integer id;
+
     private String userId;
     private String Email;
 

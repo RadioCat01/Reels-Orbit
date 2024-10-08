@@ -23,7 +23,6 @@ function Scifi() {
         const storedMovies = localStorage.getItem('Sci-Fi');
     
         if(storedMovies){
-          console.log('Using Cached Movie Data')
           setMovies(JSON.parse(storedMovies));
           
         }

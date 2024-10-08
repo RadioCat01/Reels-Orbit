@@ -15,6 +15,7 @@ import Hero from '../Components/Hero/Hero';
 import '../Components/Nav/Nav.css';
 import { Search } from 'lucide-react';
 
+import { Link as ScrollLink, Element, scroller } from 'react-scroll';
 
 function Landing() {
 
@@ -24,12 +25,18 @@ function Landing() {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const navigate = useNavigate();
   const popupRef = useRef(null);
+  const [activeSection, setActiveSection] = useState('home');
 
   // # Security Section
   useEffect(() => {
     axios.get('http://localhost:8080/Security', { withCredentials: true })
         .then(response => {
+
+          if (response.data && Object.keys(response.data).length > 0) {
             setUser(response.data);
+          } else {
+            setUser(null);
+          };
             setLoading(false); 
         })
         .catch(() => {
@@ -69,6 +76,25 @@ function Landing() {
     }
   }, [showLoginPopup]);
   
+  useEffect(() => {
+    const sections = document.querySelectorAll('.scroll-section');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.7 }
+    );
+
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
+    };
+  }, []);
 
   const handleButtonClick = () => {
     if (!loading) {
@@ -110,66 +136,86 @@ function Landing() {
               <p className='orbit'>Orbit</p>
         </div>
         <div className='navBtns'>
-            <p className='home'>Home</p>
-            <p>My movies</p>
-            <p>About</p>
+            <ScrollLink to="home" smooth={true} duration={500} offset={-100}>
+              <p className={activeSection === 'home' ? 'active' : ''}>Home</p>
+            </ScrollLink>
+            <ScrollLink to="fav-movies" smooth={true} duration={500} offset={-100}>
+              <p className={activeSection === 'fav-movies' ? 'active' : ''}>Top Movies</p>
+            </ScrollLink>
+            <ScrollLink to="drama-section" smooth={true} duration={500} offset={-100}>
+              <p className={activeSection === 'drama-section' ? 'active' : ''}>Top TV</p>
+            </ScrollLink>
+            <ScrollLink to="genre-section" smooth={true} duration={500} offset={-100}>
+              <p className={activeSection === 'genre-section' ? 'active' : ''}>Genres</p>
+            </ScrollLink>
         </div>
         <div className='navLeft'>
+          <div className='userInfo'>
+          {user?.email ? <p className='userName'>{user.email}</p> : <p className='userName'>Guest</p>}
+          </div>
         <Search className='search' onClick={handleSearchClick}/>
+        
         <p className='bt' onClick={handleButtonClick}>Bucket</p>
         </div>
     </div>
 
-    <Hero/>
-        <motion.div
-          className="fav-movies"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <FavMovies />
-        </motion.div>
+    <Element name="home" id="home" className="scroll-section">
+          <Hero/>
+        </Element>
+        
+        <Element name="fav-movies" id="fav-movies" className="scroll-section">
+          <motion.div
+            className="fav-movies"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <FavMovies />
+          </motion.div>
+          <motion.div
+            className="top-rated"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <Top />
+          </motion.div>
+        </Element>
 
-        <motion.div
-          className="top-rated"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <Top />
-        </motion.div>
+        <Element name="drama-section" id="drama-section" className="scroll-section">
+          <motion.div
+            className="drama-section"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <Drama />
+          </motion.div>
+          <motion.div
+            className="scifi-section"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <Scifi />
+          </motion.div>
+        </Element>
 
-        <motion.div
-          className="drama-section"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <Drama />
-        </motion.div>
-
-        <motion.div
-          className="scifi-section"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <Scifi />
-        </motion.div>
-
-        <motion.div
-          className="genre-section"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <Genre />
-        </motion.div>
+        <Element name="genre-section" id="genre-section" className="scroll-section">
+          <motion.div
+            className="genre-section"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <Genre />
+          </motion.div>
+        </Element>
 
         <Footer/>
       </div>

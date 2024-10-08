@@ -23,7 +23,6 @@ function FavMovies() {
         const storedMovies = localStorage.getItem('NewMovies');
     
         if(storedMovies){
-          console.log('Using Cached Movie Data')
           setMovies(JSON.parse(storedMovies));
         }
         else{
@@ -31,6 +30,7 @@ function FavMovies() {
           try {
             const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
             setMovies(response.data.results);
+            console.log(response.data);
             localStorage.setItem('NewMovies', JSON.stringify(response.data.results));
           } catch (error) {
             setError(error.message);

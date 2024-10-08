@@ -5,6 +5,9 @@
 .iconC{
     color: white;
 }
+button{
+    cursor: pointer;
+}
 .pop{
     position: relative;
     background-color: rgb(255, 255, 255);

@@ -22,6 +22,7 @@ function Pop({movie, onClose}) {
   const [loading, setLoading] = useState(true); 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const navigate = useNavigate();
+
     useEffect(() => {
         if (popupRef.current) {
           popupRef.current.scrollIntoView({ behavior: 'smooth' }); 
@@ -37,7 +38,7 @@ function Pop({movie, onClose}) {
         })
         .catch(() => {
             setUser(null); 
-            setLoading(false); 
+            setLoading(false);
         });
   }, []);
 
@@ -53,23 +54,39 @@ function Pop({movie, onClose}) {
     };
   }, [showLoginPopup]);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (popupRef.current && !popupRef.current.contains(event.target)) {
-        onClose();
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [onClose]);
-
   const handleButtonClick = () => {
     if (!loading) {
       if (user) {
-        navigate('/bucket');  
-      } else {
+        console.log('User True');
+        console.log(movie);
+        console.log(user);
+        const movieData = {
+          movieId: movie.id,
+          title: movie.title,
+          adult: movie.adult,
+          release_date: movie.release_date,
+          vote_average: movie.vote_average,
+          poster_path: movie.poster_path,
+          backdrop_path: movie.backdrop_path,
+          overview: movie.overview,
+          genreIds: movie.genre_ids,
+          popularity: movie.popularity,
+          original_language: movie.original_language,
+          vote_count: movie.vote_count,
+
+          userId: user.sub || user.id,
+          email:user.email
+        };
+        
+        axios.post('http://localhost:8081/movies', movieData)
+          .then(response => {
+            console.log('Movie saved successfully:', response.data);
+          })
+          .catch(error => {
+            console.error('Error saving movie:', error);
+          });
+
+            } else {
         setShowLoginPopup(true);  
       }
     }
@@ -89,8 +106,6 @@ function Pop({movie, onClose}) {
     />
   </div>; 
   }
-    
-      console.log(movie);
       if (!movie) return null;
 
   return ( 
@@ -110,8 +125,8 @@ function Pop({movie, onClose}) {
             <p><Star className='star'/>{movie.vote_average}</p>
         </div>    
         <div className='buttons'>
-            <button onClick={handleButtonClick}> <DollarSign className='add'/>See Retailers</button>
-            <button onClick={handleButtonClick}><Play className='add'/>Preview</button>
+            <button > <DollarSign className='add'/>See Retailers</button>
+            <button ><Play className='add'/>Preview</button>
             <button onClick={handleButtonClick}><Plus className='add' /> Wishlist</button>
         </div> 
             

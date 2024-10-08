@@ -23,7 +23,6 @@ function Top() {
         const storedMovies = localStorage.getItem('TopMovies');
     
         if(storedMovies){
-          console.log('Using Cached Movie Data')
           setMovies(JSON.parse(storedMovies));
         }
         else{

@@ -13,7 +13,6 @@ function Genre() {
         const storedCollections = localStorage.getItem('Collections');
     
         if (storedCollections) {
-            console.log('Using Cached Collections Data');
             setCollections(JSON.parse(storedCollections));
     
         } else {
@@ -61,9 +60,9 @@ function Genre() {
             <h3>Popular Movie Collections</h3>
         <div className="slider-container">
         <ul className="movies-listtype2">
-            {collections.map(collection => (
-              <GenreCard key={collection.id} collection={collection} />
-            ))}
+        {collections.map((collection, index) => (
+    <GenreCard key={`${collection.genreName}-${index}`} collection={collection} />
+  ))}
         </ul>
     </div>
     </div>

@@ -14,7 +14,6 @@
 
 .navBtns{
     cursor: pointer;
-    margin-left: 60px;
     display: flex;
     flex-direction: row;
     color: white;
@@ -23,22 +22,27 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+    margin-left: 60px;
+    margin-right: -60px;
+    
 
     p{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin-right: 20px;
         height: 30px;
+        cursor: pointer;
+        transition: border-bottom 0.3s ease;
     }
-    .home{
-        border-bottom: 3px solid rgb(216, 113, 216);
+    p.active{
+        border-bottom: 2px solid rgb(216, 113, 216);
 
     }
+    p:not(.active) {
+    border-bottom: none;
+}
 }
 
 .logo4{
-    margin-left: 20px;
+    margin-left: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +74,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 840px;
+    margin-left: 620px;
 }
 
 .bt{
@@ -84,3 +88,12 @@
 .search{
     cursor: pointer;
 }
+
+.userName{
+    display: flex;
+    align-items: center;
+    min-width: 180px;
+    margin-right: 40px;
+    margin-left: -40px;
+    justify-content: flex-end;
+  }

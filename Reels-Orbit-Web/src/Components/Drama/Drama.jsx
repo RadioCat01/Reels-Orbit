@@ -22,7 +22,6 @@ function Drama() {
         const storedMovies = localStorage.getItem('Drama');
     
         if(storedMovies){
-          console.log('Using Cached Movie Data')
           setMovies(JSON.parse(storedMovies));
           
         }
