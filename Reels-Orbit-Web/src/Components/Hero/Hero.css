@@ -1,4 +1,97 @@
-.hero{
-    height: 70vh;
-    border: 1px solid red;
+.herosection{
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner{
+    height: 75vh;
+    width: 96%;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background-image: url('https://wallpapers.com/images/hd/cool-dark-purple-earth-lrdh96uxc4vmp4z1.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.378);
+    margin-top: 10px;
+}
+
+.banner .slider{
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    top: 10%;
+    left: 44.5%;
+    transform-style: preserve-3d;
+    transform:perspective(1000px);
+
+    animation: autoRun 60s linear infinite;
+    margin-top: 68px;
+    z-index: 2;
+}
+
+@keyframes autoRun{
+    from{
+        transform: perspective(2000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(2000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner .content{
+    position: absolute;
+    bottom: 208px;
+    left: 1020px;
+    transform: translateX(-50%);
+    width: min(1400px, 70vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.logoHero{
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 240px;
+    height: 240px;
+    border-radius: 100%;
+    padding: 4px;
+    border: 8px dashed rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0,0.8);
+
+    p{
+        font-size: 80px;
+        font-family: "Dancing Script", cursive;
+    }
+
+    .reels{
+        color: rgb(255, 255, 255);
+        margin-bottom: -90px;
+        margin-right: 10px;
+    }
+    .orbit{
+        color: rgb(255, 255, 255);
+        margin-left: 10px;
+    }
 }
