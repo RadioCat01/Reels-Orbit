@@ -5,11 +5,18 @@
     flex-direction: row;
     font-family: "Fredoka", sans-serif;
     align-items: center;
+    justify-content: space-between;
     z-index: 1005;
     width: 100%;
     background-color: black;
     top: 0px;
     left: 0;
+}
+.navRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .navBtns{
@@ -87,13 +94,14 @@
 }
 .search{
     cursor: pointer;
+    margin-left: 40px;
 }
 
 .userName{
     display: flex;
     align-items: center;
     min-width: 180px;
-    margin-right: 10px;
+    margin-right: 30px;
     margin-left: -40px;
     justify-content: flex-end;
   }

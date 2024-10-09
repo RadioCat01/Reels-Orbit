@@ -2,6 +2,7 @@ package com.ReelsOrbit.userService.Movie;
 
 import com.ReelsOrbit.userService.User.User;
 import com.ReelsOrbit.userService.User.UserRepo;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -49,5 +50,9 @@ public class MovieService {
         else {
             return ResponseEntity.ok(movies);
         }
+    }
+
+    public void deleteMovie(DeleteMovieRequest request) {
+        movieRepository.deleteById(request.movieId());
     }
 }

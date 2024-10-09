@@ -18,6 +18,7 @@ import { LogOut } from 'lucide-react';
 
 import { Link as ScrollLink, Element, scroller } from 'react-scroll';
 
+
 function Landing() {
 
   // # Security Section
@@ -114,6 +115,7 @@ function Landing() {
   const closePopup = () => {
     setShowLoginPopup(false); 
   };
+  
 
   const logout = async () => {
     window.location.reload();
@@ -135,8 +137,10 @@ function Landing() {
 
   return (
     <div className="page">
+
       <div className={showLoginPopup ? 'blur-background' : ''}>
       <div className='nav'>
+        <div className='navRight'>
         <div className='logo4'>
               <p className='reels'>Reels</p>
               <p className='orbit'>Orbit</p>
@@ -155,15 +159,15 @@ function Landing() {
               <p className={activeSection === 'genre-section' ? 'active' : ''}>Genres</p>
             </ScrollLink>
         </div>
+        </div>
         <div className='navLeft'>
           <div className='userInfo'>
           {user?.email ? <p className='userName'>{user.email}</p> : <p className='userName'>Guest</p>}
           {user?.email ?  <LogOut onClick={logout}/> : ''}
-          
+          <Search className='search' onClick={handleSearchClick}/>
+          <p className='bt' onClick={handleButtonClick}>Bucket</p>
           </div>
-        <Search className='search' onClick={handleSearchClick}/>
-        
-        <p className='bt' onClick={handleButtonClick}>Bucket</p>
+       
         </div>
     </div>
 

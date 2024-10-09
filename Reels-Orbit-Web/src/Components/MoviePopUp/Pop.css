@@ -63,7 +63,8 @@
     align-items: center;
     justify-content: space-between;
     height: 30px;
-    width: 358px;
+    width: 350px;
+    margin-left: -24px;
     P{
         padding-top: 10px;
         display: flex;
@@ -82,16 +83,13 @@
   }
   
   .info{
-    position: absolute;
-    top: 340px;
-    left: 470px;
-    padding: 20px;
     width: 60%;
-    height: 200px;
+    height: 250px;
 
     h2{
         font-family: "Inter", sans-serif;
-        font-size: 30px;
+        font-size: 26px;
+        margin-left: -8px;
     }
 
     p{
@@ -104,7 +102,7 @@
 
   .buttons{
     margin-top: 25px;
-    margin-left: -4px;
+    margin-left: -30px;
     width: 370px;
     display: flex;
     flex-direction: row;
@@ -135,6 +133,8 @@
 
 .overView{
   margin-top: 30px;
+  margin-left: 200px;
+  width: 600px;
 }
 
 .AddInfo{
@@ -145,7 +145,7 @@
   line-height: 0px;
   margin-top: 20px;
   margin-bottom: 20px;
-  
+  margin-left: -200px;
   strong{
     font-size: 12px;
     color: rgb(154, 152, 152);
@@ -165,8 +165,28 @@ span{
 .page{
   position: relative;
 }
+.foot{
+  width: 500px;
+  margin-left: 92px;
+}
 
 .popup-inner2{
   position: absolute;
   top: 520px;
+}
+
+.wishlist-popup {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  top: 20px;
+  right: 20px; 
+  background-color: rgb(156, 80, 173); 
+  color: white; 
+  padding: 10px 20px; 
+  border-radius: 5px;
+  z-index: 1020;
+  transition: opacity 0.3s ease;
+
+  height: 20px;
 }

@@ -9,20 +9,26 @@ import java.util.List;
 @RestController
 @RequestMapping("/movies")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class MovieController {
 
     private final MovieService movieService;
 
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
     public ResponseEntity<String> addMovie(@RequestBody Movie movie) {
         return ResponseEntity.ok(movieService.save(movie));
     }
 
     @GetMapping
-    @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
     public ResponseEntity<List<Movie>> getMoviesById(@RequestParam String userId) {
         return movieService.getMoviesById(userId);
+    }
+
+    @PostMapping("/delete")
+    public ResponseEntity<String> deleteMovie(@RequestBody DeleteMovieRequest request) {
+        movieService.deleteMovie(request);
+        System.out.println(request);
+        return ResponseEntity.ok("Movie deleted successfully");
     }
 
 }

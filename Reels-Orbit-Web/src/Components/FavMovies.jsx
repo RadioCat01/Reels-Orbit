@@ -45,6 +45,7 @@ function FavMovies() {
         return <div>Error: {error}</div>;
       }
     
+      const handleClick= () =>{}
 
   return (
     <>
@@ -53,7 +54,7 @@ function FavMovies() {
         <div className="slider-container">
           <ul className="movies-list">
             {movies.map(movie => (
-              <MovieCardA key={movie.id} movie={movie} onClick={handleMovieClick} />
+              <MovieCardA key={movie.id} movie={movie} onInfoClick={handleClick}  onClick={handleMovieClick} />
             ))}
           </ul>
         </div>

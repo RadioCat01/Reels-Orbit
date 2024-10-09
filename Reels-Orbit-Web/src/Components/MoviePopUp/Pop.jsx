@@ -12,6 +12,7 @@ import { InfinitySpin } from 'react-loader-spinner';
 import { motion } from 'framer-motion';
 
 
+
 function Pop({movie, onClose}) {
 
     const popupRef = useRef(null);
@@ -22,6 +23,9 @@ function Pop({movie, onClose}) {
   const [loading, setLoading] = useState(true); 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const navigate = useNavigate();
+
+  const [wishlistPopupVisible, setWishlistPopupVisible] = useState(false); 
+  const [wishlistPopupMessage, setWishlistPopupMessage] = useState('');
 
     useEffect(() => {
         if (popupRef.current) {
@@ -54,7 +58,7 @@ function Pop({movie, onClose}) {
     };
   }, [showLoginPopup]);
 
-  const handleButtonClick = () => {
+  const AddToWishListClick = () => {
     if (!loading) {
       if (user) {
         console.log('User True');
@@ -81,6 +85,14 @@ function Pop({movie, onClose}) {
         axios.post('http://localhost:8081/movies', movieData)
           .then(response => {
             console.log('Movie saved successfully:', response.data);
+
+            setWishlistPopupMessage(`Item "${movie.title}" added to the Bucket !`);
+            setWishlistPopupVisible(true);
+
+            // Automatically hide the popup after 3 seconds
+            setTimeout(() => {
+                setWishlistPopupVisible(false);
+            }, 3000);
           })
           .catch(error => {
             console.error('Error saving movie:', error);
@@ -110,6 +122,7 @@ function Pop({movie, onClose}) {
 
   return ( 
     <div className='page'>
+  
     <div className={showLoginPopup ? 'blur-background' : ''}>
       <div ref={popupRef} className="popup-content" onClick={e => e.stopPropagation()}>
          <button className="close-btn" onClick={onClose}><ChevronsDown className='btn'/></button>
@@ -123,11 +136,11 @@ function Pop({movie, onClose}) {
             <div className='top'>
             <h2>{movie.title}</h2>
             <p><Star className='star'/>{movie.vote_average}</p>
-        </div>    
+            </div>    
         <div className='buttons'>
-            <button > <DollarSign className='add'/>See Retailers</button>
-            <button ><Play className='add'/>Preview</button>
-            <button onClick={handleButtonClick}><Plus className='add' /> Wishlist</button>
+        <button onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}> <DollarSign className='add' /> See Retailers</button>
+        <button onClick={() => window.open(`https://www.themoviedb.org/movie/${movie.id}`, '_blank')}><Play className='add' /> Preview</button>
+        <button onClick={AddToWishListClick}><Plus className='add' /> Wishlist</button>
         </div> 
             
         <p className='overView'>{movie.overview}</p> 
@@ -143,6 +156,7 @@ function Pop({movie, onClose}) {
         <span className='foot'>PRICING SUBJECT TO CHANGE. Confirm current pricing with applicable retailer. All transactions subject to applicable license terms and conditions.</span>
       </div>
       </div>
+     
       </div>
       
       {showLoginPopup && (
@@ -152,6 +166,11 @@ function Pop({movie, onClose}) {
           </div>
         </motion.div>
       )}
+     {wishlistPopupVisible && (
+                <div className="wishlist-popup">
+                    {wishlistPopupMessage}
+                </div>
+            )}
       </div>
      
   )

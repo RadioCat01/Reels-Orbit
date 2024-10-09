@@ -1,0 +1,189 @@
+.pop2{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 0, 0);
+    width: 550px;
+    height: 750px;
+    border-radius: 20px;
+    z-index: 10000;
+    border: 2px solid rgba(203, 203, 203, 0.1);
+    
+}
+
+.bg-wrapper {
+    position: relative;
+    
+  }
+  .bg-image {
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400vh;
+    background: rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    pointer-events: none; 
+
+  }
+
+  .info{
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Infotitle{
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  .infoTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    
+    .date{
+      margin-right: 25px;
+      font-weight: 400;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .cal{
+        width: 16px;
+        margin-right: 5px;
+      }
+    }
+    .rating{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .star{
+        margin-right: 5px;
+        width: 16px;
+        color: yellow;
+      }
+    }
+
+    span{
+      margin-right: 25px;
+      font-size: 14px;
+      color: black;
+      font-weight: 700;
+      border-radius: 4px;
+      height: 22px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-bottom: 3px;
+      background-color: white;
+    }
+  }
+  .retail{
+    position: absolute;
+    bottom: -290px;
+    background: linear-gradient(to bottom right, rgba(54, 53, 53, 0.563) 0%, rgba(69, 68, 69, 0.465) 60%);
+    height: 240px;
+    width: 460px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    button{
+      font-size: 14px;
+      font-family: "Fredoka", sans-serif;
+      color: white;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+      height: 60px;
+      font-weight: 500;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      transition: background-color 0.5s ease, border-bottom 0.3s ease; 
+      }
+    button:hover{
+      background-color: rgb(39, 39, 39);
+    }
+   .paypal{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .fgo{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+  }
+  }
+  .infoFoot{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -330px;
+    left: 30px;
+    width: 400px;
+    font-size: 10px;
+    font-weight: 200;
+    opacity: 0.8;
+  }
+  .payment{
+    margin-left: 16px;
+  }
+  .paypalicon{
+    width: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .apple{
+    width: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .b{
+    width: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .c{
+    width: 24px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .price{
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    right: 14px;
+    font-weight: 200;
+    font-size: 13px;
+  }
+
+  .motiondev{
+    position: fixed;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1005;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
