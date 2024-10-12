@@ -46,7 +46,7 @@ function Pop({movie, onClose}) {
         });
   }, []);
 
-  useEffect(() => {
+   useEffect(() => {
     if (showLoginPopup) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -56,7 +56,7 @@ function Pop({movie, onClose}) {
     return () => {
       document.body.style.overflow = 'auto'; 
     };
-  }, [showLoginPopup]);
+  }, [showLoginPopup]);  
 
   const AddToWishListClick = () => {
     if (!loading) {
@@ -121,7 +121,7 @@ function Pop({movie, onClose}) {
       if (!movie) return null;
 
   return ( 
-    <div className='page'>
+    <div className='PopPage'>
   
     <div className={showLoginPopup ? 'blur-background' : ''}>
       <div ref={popupRef} className="popup-content" onClick={e => e.stopPropagation()}>
@@ -160,8 +160,8 @@ function Pop({movie, onClose}) {
       </div>
       
       {showLoginPopup && (
-        <motion.div className="popup" initial={{opacity:0, y: 20}} animate={{opacity:1, y:0}} transition={{duration: 0.4}} exit={{opacity:0, y:20}}>
-          <div className="popup-inner popup-inner2">
+        <motion.div className="popup" initial={{opacity:0, y: 20}} animate={{opacity:1, y:0}} transition={{duration: 0.4}}>
+          <div className="">
             <Login onClose={closePopup} />
           </div>
         </motion.div>
@@ -172,8 +172,7 @@ function Pop({movie, onClose}) {
                 </div>
             )}
       </div>
-     
-  )
+  );
 }
 
 export default Pop

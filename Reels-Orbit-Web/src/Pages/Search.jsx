@@ -44,6 +44,7 @@ function SearchPage() {
 
 
   return (
+    <>
     <div className='searchPage'>
       <div className="searchTop">
         <div className='logo4'>
@@ -77,8 +78,11 @@ function SearchPage() {
       </motion.div>
       </div>
       {selectedMovie && <Pop movie={selectedMovie} onClose={closePopup} />}
+      <div className="aboveFooter"></div>
       <Footer/>
     </div>
+    
+    </>
   );
 }
 

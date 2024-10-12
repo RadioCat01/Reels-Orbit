@@ -90,4 +90,6 @@ input::placeholder{
     min-height: 40vh;
     margin-bottom: 60px;
 }
-
+.aboveFooter{
+    height: 100px;
+}

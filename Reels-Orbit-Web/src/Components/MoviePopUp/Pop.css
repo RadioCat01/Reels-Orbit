@@ -24,7 +24,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(0, 0, 0, 0.5);;
+    background: rgba(0, 0, 0, 0.5);
     border: none;
     border-radius: 20px;
     font-size: 24px;
@@ -162,18 +162,21 @@ span{
   color: rgb(158, 158, 158);
 }
 
-.page{
+.PopPage{
   position: relative;
+  z-index: 0;
+}
+.popup{
+  position: absolute;
+  top: 120px;
+  left: 300px;
+  z-index: 10005;
 }
 .foot{
   width: 500px;
   margin-left: 92px;
 }
 
-.popup-inner2{
-  position: absolute;
-  top: 520px;
-}
 
 .wishlist-popup {
   font-family: "Inter", sans-serif;

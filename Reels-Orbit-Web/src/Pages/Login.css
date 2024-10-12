@@ -9,7 +9,6 @@ button{
     cursor: pointer;
 }
 .pop{
-    position: relative;
     background-color: rgb(255, 255, 255);
     width: 840px;
     height: 440px;
@@ -18,7 +17,6 @@ button{
     text-align: center;
     color: black;
     font-family: "Fredoka", sans-serif;
-
     display: flex;
     flex-direction: row;
 }
@@ -37,7 +35,7 @@ button{
     }
 
     .reelsOrbit{
-        border: 1px solid red;
+        
         width: 80px;
         height: 80px;
     }
@@ -45,11 +43,14 @@ button{
         font-size: 14px;
     }
     .foot{
+        position: absolute;
         opacity: 0.8;
         margin-bottom: -6px;
         margin-top: -6px;
         width: 300px;
         font-size: 12px;
+        top: 406px;
+        left: -36px;
     }
 }
 
