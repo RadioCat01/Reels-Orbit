@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import Login from '../../Pages/Login'
 import { InfinitySpin } from 'react-loader-spinner';
 import { motion } from 'framer-motion';
+import LoginCopy from '../../Pages/Login copy';
 
 
 
@@ -46,7 +47,7 @@ function Pop({movie, onClose}) {
         });
   }, []);
 
-   /*useEffect(() => {
+  useEffect(() => {
     if (showLoginPopup) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -56,7 +57,7 @@ function Pop({movie, onClose}) {
     return () => {
       document.body.style.overflow = 'auto'; 
     };
-  }, [showLoginPopup]);  */
+  }, [showLoginPopup]);  
 
   const AddToWishListClick = () => {
     if (!loading) {
@@ -158,14 +159,11 @@ function Pop({movie, onClose}) {
       </div>
      
       </div>
-      
+      <div className="popfix">
       {showLoginPopup && (
-        <motion.div className="popup" initial={{opacity:0, y: 20}} animate={{opacity:1, y:0}} transition={{duration: 0.4}}>
-          <div className="">
-            <Login onClose={closePopup} />
-          </div>
-        </motion.div>
+            <LoginCopy onClose={closePopup} />
       )}
+      </div>
      {wishlistPopupVisible && (
                 <div className="wishlist-popup">
                     {wishlistPopupMessage}

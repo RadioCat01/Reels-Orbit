@@ -59,8 +59,6 @@ function FavMovies() {
           </ul>
         </div>
       </div>
-
-     
       {selectedMovie && <Pop movie={selectedMovie} onClose={closePopup} />}
     </>
   )

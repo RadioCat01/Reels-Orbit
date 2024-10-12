@@ -3,7 +3,7 @@ import { ChevronsLeft } from 'lucide-react';
 import './Login.css';
 import { motion } from 'framer-motion';
 
-function Home({onClose}) {
+function LoginCopy({onClose}) {
 
     const googleLogin = () => {
         window.location.href ='http://localhost:8080/oauth2/authorization/google';
@@ -19,7 +19,7 @@ function Home({onClose}) {
 
 
    return (
-     <motion.div className='pop' initial={{opacity:0, y: 20}} animate={{opacity:1, y:0}} transition={{duration: 0.4}}>
+     <motion.div className='pop-copy' initial={{opacity:0, y: 20}} animate={{opacity:1, y:0}} transition={{duration: 0.4}}>
       <button className='icon'><ChevronsLeft className='iconC' onClick={onClose}/></button>
       <div className='left'>
       <div className='logo2'>
@@ -45,5 +45,5 @@ function Home({onClose}) {
    )
  }
  
- export default Home
+ export default LoginCopy
  

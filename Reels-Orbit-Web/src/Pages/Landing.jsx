@@ -57,7 +57,7 @@ function Landing() {
     return () => {
       document.body.style.overflow = 'auto'; 
     };
-  }, [showLoginPopup]);
+  }, [showLoginPopup]); 
 
   useEffect(() => {
     if (showLoginPopup) {
@@ -241,11 +241,7 @@ function Landing() {
       </div>
 
     {showLoginPopup && (
-        <motion.div className="popup" initial={{opacity:0, y: 20}} animate={{opacity:1, y:0}} transition={{duration: 0.4}} exit={{opacity:0, y:20}}>
-          <div className="popup-inner" ref={popupRef}>
             <Login onClose={closePopup} />
-          </div>
-        </motion.div>
       )}
     </div>
   );
