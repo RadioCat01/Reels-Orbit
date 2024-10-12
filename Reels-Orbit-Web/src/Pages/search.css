@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 46%, rgba(73, 53, 86, 0.7) 46%);
+    
 }
 .searchTop{
     position: fixed;
@@ -30,6 +30,7 @@
     align-items: center;
     z-index: 99999;
     background-color: black;
+    border-bottom: 2px solid rgba(216, 113, 216, 0.5);
 }
 .searchFrom{
     border: 3px solid rgba(142, 142, 142, 0.645);
@@ -81,7 +82,7 @@ input::placeholder{
 }
 
 .pickedB{
-    margin-top: 120px;
+    margin-top: 140px;
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     width: 90%;
