@@ -14,6 +14,7 @@ function BucketPop({movie}) {
     <div className="bg-wrapper">
       <img src={`${imageBaseUrl}${movie.backdrop_path}`} className="bg-image" alt="Movie Backdrop" />
       <div className="gradient-overlay"></div>
+      <div className="gradient-overlay-for-bgimage"></div>
     </div>
     <div className='info'>
           <div className='Infotitle'>{movie.title}</div>

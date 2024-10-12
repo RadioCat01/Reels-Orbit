@@ -52,7 +52,8 @@
     width: 900px; 
     width: 90%;
     max-width: 60%;
-    margin: auto;
+    margin-top: 70px;
+    margin-left: 50px;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 

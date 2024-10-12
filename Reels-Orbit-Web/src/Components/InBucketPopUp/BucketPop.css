@@ -32,7 +32,16 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     pointer-events: none; 
+  }
 
+  .gradient-overlay-for-bgimage{
+    position: absolute;
+    top: 0px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); 
+    height: 310px;
+    width: 550px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
 
   .info{
@@ -51,6 +60,10 @@
   .Infotitle{
     font-size: 30px;
     font-weight: 400;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .infoTop{
