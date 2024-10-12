@@ -46,7 +46,7 @@ function Pop({movie, onClose}) {
         });
   }, []);
 
-   useEffect(() => {
+   /*useEffect(() => {
     if (showLoginPopup) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -56,7 +56,7 @@ function Pop({movie, onClose}) {
     return () => {
       document.body.style.overflow = 'auto'; 
     };
-  }, [showLoginPopup]);  
+  }, [showLoginPopup]);  */
 
   const AddToWishListClick = () => {
     if (!loading) {
