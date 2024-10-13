@@ -27,26 +27,6 @@ button{
     z-index: 1000;
 }
 
-.pop-copy{
-    background-color: rgb(255, 255, 255);
-    width: 840px;
-    height: 440px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: black;
-    font-family: "Fredoka", sans-serif;
-    display: flex;
-    flex-direction: row;
-    
-    position: fixed;
-    top: 44%;
-    left: 22%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-}
-
-
 .left{
     display: flex;
     flex-direction: column;

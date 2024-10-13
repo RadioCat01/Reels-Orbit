@@ -6,10 +6,11 @@ import MovieCardA from '../Components/MovieCardA';
 import '../Components/Nav/Nav.css';
 import { Search } from 'lucide-react';
 import Footer from '../Components/Footer/Footer';
-import Pop from '../Components/MoviePopUp/Pop';
+
 
 
 import { useNavigate } from 'react-router-dom';
+import SearchPop from '../Components/MoviePopUp/SearchPop';
 
 function SearchPage() {
 
@@ -77,7 +78,7 @@ function SearchPage() {
     )}
       </motion.div>
       </div>
-      {selectedMovie && <Pop movie={selectedMovie} onClose={closePopup} />}
+      {selectedMovie && <SearchPop movie={selectedMovie} onClose={closePopup} />}
       <div className="aboveFooter"></div>
       <Footer/>
     </div>

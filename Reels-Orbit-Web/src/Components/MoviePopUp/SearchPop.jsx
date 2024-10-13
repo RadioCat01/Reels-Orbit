@@ -9,11 +9,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Login from '../../Pages/Login'
 import { InfinitySpin } from 'react-loader-spinner';
-import { tr } from 'framer-motion/client';
 
 
 
-function Pop({movie, onClose}) {
+function SearchPop({movie, onClose}) {
 
     const popupRef = useRef(null);
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'; 
@@ -22,9 +21,7 @@ function Pop({movie, onClose}) {
   const [user, setUser] = useState(null); 
   const [loading, setLoading] = useState(true); 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
-  
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false); 
 
   const [wishlistPopupVisible, setWishlistPopupVisible] = useState(false); 
   const [wishlistPopupMessage, setWishlistPopupMessage] = useState('');
@@ -62,7 +59,6 @@ function Pop({movie, onClose}) {
 
   const AddToWishListClick = () => {
     if (!loading) {
-      
       if (user) {
         console.log('User True');
         console.log(movie);
@@ -92,7 +88,7 @@ function Pop({movie, onClose}) {
             setWishlistPopupMessage(`Item "${movie.title}" added to the Bucket !`);
             setWishlistPopupVisible(true);
 
-           
+            // Automatically hide the popup after 3 seconds
             setTimeout(() => {
                 setWishlistPopupVisible(false);
             }, 3000);
@@ -100,19 +96,12 @@ function Pop({movie, onClose}) {
           .catch(error => {
             console.error('Error saving movie:', error);
           });
-          setLoading(true);
-             setTimeout(() => {
-               setLoading(false);
-                navigate('/bucket');
-      }, 1000);
 
             } else {
         setShowLoginPopup(true);  
       }
     }
-    
   };
-
 
   const closePopup = () => {
     setShowLoginPopup(false); 
@@ -168,11 +157,11 @@ function Pop({movie, onClose}) {
       </div>
      
       </div>
-      <div className="popfix">
+
       {showLoginPopup && (
-            <Login onClose={closePopup} positionStyle={{ position: 'absolute', top: '500px', left: '320px' }}/>
+            <Login onClose={closePopup} />
       )}
-      </div>
+
      {wishlistPopupVisible && (
                 <div className="wishlist-popup">
                     {wishlistPopupMessage}
@@ -182,4 +171,4 @@ function Pop({movie, onClose}) {
   );
 }
 
-export default Pop
+export default SearchPop
