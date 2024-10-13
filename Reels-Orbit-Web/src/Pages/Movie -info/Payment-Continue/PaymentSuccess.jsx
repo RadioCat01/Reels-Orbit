@@ -50,7 +50,7 @@ function PaymentSuccess() {
         <img src={`${imageBaseUrl}${movieDetails.poster_path}`} alt="" className='SpagePoster' />
         
         <div className="Scont">
-        <SquareChevronLeft onClick={()=>{navigate("/")}} className='SHome' />
+        <SquareChevronLeft onClick={()=>{navigate("/")} } className='SHome' />
           <div className='logo3 Slogo'>
               <p className='reels'>Reels</p>
               <p className='orbit'>Orbit</p>
