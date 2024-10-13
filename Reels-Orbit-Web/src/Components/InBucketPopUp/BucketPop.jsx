@@ -4,10 +4,35 @@ import { Star } from 'lucide-react';
 import paypal from '../../assets/paypal.png';
 import amazon from '../../assets/social.png';
 import aEx from '../../assets/american-express.png';
+import axios from 'axios';
+import { useState } from 'react';
 
 function BucketPop({movie}) {
 
-    const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'; 
+    const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
+    const [loading, setLoading] = useState(false);
+
+
+    const handlePayment = async() => {
+      setLoading(true);
+      
+      const paymentRequest = {
+        id: movie.id,
+        amount: movie.price,
+        paymentMethod: 'PAYPAL'
+      };
+
+      console.log(paymentRequest);
+
+      const response = await axios.post('http://localhost:8081/payment', paymentRequest, {
+                withCredentials: true,
+            });
+            const redirectUrl = response.data;  
+            window.location.href = redirectUrl;
+            console.log(redirectUrl);
+            setLoading(false);
+          }
+
 
   return (
     <div className='pop2'>
@@ -25,7 +50,7 @@ function BucketPop({movie}) {
       </div>
       <div className='mid'>Pick Your Favorite Retailer & Let's Get Connected</div>
       <div className='retail'>
-        <button className='paypal'><img src={paypal} className='paypalicon payment'/>Paypal<div className='price'>${movie.price}</div></button>
+        <button className='paypal' onClick={handlePayment}><img src={paypal} className='paypalicon payment' />Paypal<div className='price'>${movie.price}</div></button>
         <button className='itunes'><img src="https://cdn-icons-png.flaticon.com/512/179/179309.png" className='payment apple'/>iTunes<div className='price'>${movie.price}</div></button>
         <button className='pm'><img src={amazon} className='payment b'/>Prime Video<div className='price'>${movie.price}</div></button>
         <button className='fgo'><img src={aEx} className='payment c'/>American Express<div className='price'>${movie.price}</div></button>
