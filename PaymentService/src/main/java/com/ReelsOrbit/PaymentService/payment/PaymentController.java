@@ -5,6 +5,7 @@ import com.paypal.api.payments.Payment;
 import com.paypal.core.rest.PayPalRESTException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -58,22 +59,22 @@ public class PaymentController {
             Payment payment = service.executePayment(paymentId,payerId);
             if(payment.getState().equals("approved")){
                 //service.sendEmail(incomingReq);
-                return new RedirectView("http://localhost:4200/landing");
+                return new RedirectView("http://localhost:5173/paymentSuccess/"+incomingReq.id());
             }
         } catch (com.paypal.base.rest.PayPalRESTException e) {
             throw new RuntimeException(e);
         }
-        return new RedirectView("http://localhost:4200/landing");
+        return new RedirectView("http://localhost:5173/paymentSuccess"+incomingReq.id());
     }
 
     @GetMapping("/cancel")
-    public String paymentCancel(){
-        return "paymentCancel";
+    public RedirectView paymentCancel(){
+        return new RedirectView("http://localhost:5173/paymentCanceled");
     }
 
     @GetMapping("/error")
-    public String paymentError(){
-        return "paymentError";
+    public RedirectView paymentError(){
+        return new RedirectView("http://localhost:5173/paymentCanceled");
     }
 
 

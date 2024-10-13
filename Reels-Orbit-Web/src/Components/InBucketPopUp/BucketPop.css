@@ -11,6 +11,23 @@
     border: 2px solid rgba(203, 203, 203, 0.1);
     
 }
+ 
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+  position: fixed;
+
+  width: 1600px;
+  height: 110vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10200;
+}
+
 
 .bg-wrapper {
     position: relative;

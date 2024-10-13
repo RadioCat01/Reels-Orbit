@@ -14,6 +14,7 @@ import java.util.List;
 @Data
 @Builder
 @Table(name = "users")
+@ToString(exclude = "movies")
 public class User {
 
     @Id

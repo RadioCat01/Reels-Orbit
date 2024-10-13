@@ -3,10 +3,7 @@ package com.ReelsOrbit.userService.Movie;
 import com.ReelsOrbit.userService.User.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @AllArgsConstructor
@@ -14,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Table(name = "Movies")
+@ToString(exclude = "user")
 public class Movie {
     @Id
     @GeneratedValue

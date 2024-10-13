@@ -1,0 +1,130 @@
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  
+    position: fixed;
+  
+    width: 1600px;
+    height: 110vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10200;
+  }
+
+  .paymentSuccessPage{
+    width: 99.8%;
+    height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Snav{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+  }
+  .SpageTop{
+    width: 88%;
+    margin-top: 10px;
+   
+    .SpageTopBD{
+        width: 100%;
+        filter: blur(4px);
+        border-radius: 20px;
+    }
+
+    .SpagePoster{
+        width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+    }
+
+    .Scont{
+        position: absolute;
+        top: 13%;
+        left: 10%;
+        width: 600px;
+        height: 600px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .Slogo{
+            width: 150px;
+            height: 150px;
+            border: 5px dotted white;
+            opacity: 2;
+            p{
+                font-size: 50px;
+            }
+            .orbit{
+                margin-top: 20px;
+            }
+        }
+        .SHome{
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+        .title{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 0px;
+            margin-top: -20px;
+        }
+        h3{
+            margin-top: 60px;
+            font-size: 40px;
+        }
+        h4{
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    }
+
+  }
+
+.movieDetailsSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 10px;
+
+    padding: 10px;
+    background: rgba(49, 49, 49, 1);
+    border-radius: 20px;
+
+    h2{
+        margin-left: 45px;
+    }
+
+    p{
+        font-size: 12px;
+        color: rgb(171, 171, 171);
+    }
+
+    strong{
+        font-size: 14px;
+        color: rgb(190, 190, 190);
+    }
+}

@@ -4,6 +4,7 @@ import com.ReelsOrbit.userService.User.User;
 import com.ReelsOrbit.userService.User.UserRepo;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -54,5 +55,10 @@ public class MovieService {
 
     public void deleteMovie(DeleteMovieRequest request) {
         movieRepository.deleteById(request.movieId());
+    }
+
+    public Movie getMovieById(String movieId) {
+        Optional<Movie> purchased = movieRepository.findById(Integer.parseInt(movieId));
+        return purchased.orElse(null);
     }
 }

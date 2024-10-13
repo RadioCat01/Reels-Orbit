@@ -31,4 +31,9 @@ public class MovieController {
         return ResponseEntity.ok("Movie deleted successfully");
     }
 
+    @GetMapping("/byId/{movieId}")
+    public ResponseEntity<Movie> getMovieById(@PathVariable("movieId") String movieId) {
+        return ResponseEntity.ok( movieService.getMovieById(movieId));
+    }
+
 }

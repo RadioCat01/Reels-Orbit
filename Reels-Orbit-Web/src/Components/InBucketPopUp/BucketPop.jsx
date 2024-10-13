@@ -6,13 +6,16 @@ import amazon from '../../assets/social.png';
 import aEx from '../../assets/american-express.png';
 import axios from 'axios';
 import { useState } from 'react';
+import { InfinitySpin } from 'react-loader-spinner';
+
 
 function BucketPop({movie}) {
 
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
     const [loading, setLoading] = useState(false);
+    
 
-
+   
     const handlePayment = async() => {
       setLoading(true);
       
@@ -33,6 +36,18 @@ function BucketPop({movie}) {
             setLoading(false);
           }
 
+     if (loading) {
+            return (
+              <div className="loading-container">
+                <InfinitySpin 
+                  height="200" 
+                  width="200" 
+                  color="#ffffff" 
+                  ariaLabel="loading" 
+                />
+              </div>
+            ); 
+          }
 
   return (
     <div className='pop2'>
