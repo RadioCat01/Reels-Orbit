@@ -1,6 +1,5 @@
 package com.ReelsOrbit.PaymentService.notification;
 
-import com.ReelsOrbit.PaymentService.payment.PaymentRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;

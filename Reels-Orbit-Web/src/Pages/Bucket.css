@@ -126,7 +126,10 @@
 
 .emptyBkt{
     font-size: 40px;
-    width: 800px;
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    max-width: 800px;
     padding-bottom: 100px;
 }
 

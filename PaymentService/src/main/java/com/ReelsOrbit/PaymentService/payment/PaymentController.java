@@ -1,12 +1,10 @@
 package com.ReelsOrbit.PaymentService.payment;
 
-import com.ReelsOrbit.PaymentService.notification.KafkaConfig;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.core.rest.PayPalRESTException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
