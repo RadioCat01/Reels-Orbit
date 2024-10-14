@@ -28,4 +28,7 @@ public class Payment {
     private String payerId;
     private String paymentId;
 
+    private String userName;
+    private String userEmail;
+
 }

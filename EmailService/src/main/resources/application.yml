@@ -11,7 +11,6 @@ spring:
       properties:
         spring.json.trusted.packages: '*'
         spring.json.type.mapping: NotificationRequest:com.ReelsOrbit.EmailService.Kafka.NotificationRequest
-
   mail:
     host: localhost
     port: 1025

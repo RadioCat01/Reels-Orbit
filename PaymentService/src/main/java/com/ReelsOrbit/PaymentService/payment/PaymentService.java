@@ -76,6 +76,8 @@ public class PaymentService {
 
         kafkaConfig.sendNotification(NotificationRequest.builder()
                         .id(incomingReq.id())
+                        .userName(incomingReq.userName())
+                        .userEmail(incomingReq.userEmail())
                         .amount(incomingReq.amount())
                         .paymentMethod(incomingReq.paymentMethod())
                         .payerId(payerId)
@@ -84,6 +86,8 @@ public class PaymentService {
 
         repository.save(com.ReelsOrbit.PaymentService.payment.Payment.builder()
                 .amount(incomingReq.amount())
+                .userEmail(incomingReq.userEmail())
+                .userName(incomingReq.userName())
                 .paymentMethod(incomingReq.paymentMethod())
                 .payerId(payerId)
                 .paymentId(paymentId)

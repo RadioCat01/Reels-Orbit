@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #6a1b9a; /* Purple */
+            color: #fff;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .content {
+            padding: 30px;
+            line-height: 1.6;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .content p {
+            margin: 0 0 15px;
+        }
+
+        .content p span {
+            font-weight: bold;
+            color: #6a1b9a;
+        }
+
+        .order-details {
+            background-color: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .order-details p {
+            margin: 8px 0;
+            font-size: 1rem;
+            color: #4a148c;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #6a1b9a;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Payment Confirmation</h1>
+    </div>
+
+    <div class="content">
+        <p>Dear <span th:text="${customerName}"></span>,</p>
+        <p>Your payment of $<span th:text="${amount}"></span> has been successfully processed.</p>
+
+        <div class="order-details">
+            <p><span>Payment Method:</span> <span th:text="${paymentMethod}"></span></p>
+            <p><span>Payment ID:</span> <span th:text="${paymentId}"></span></p>
+            <p><span>Payer ID:</span> <span th:text="${payerId}"></span></p>
+        </div>
+
+        <p >Thank you for choosing our service! If you have any questions, feel free to <a href="http://localhost:5173/">contact us</a>.</p>
+    </div>
+
+    <div class="footer">
+        <p>This is an automated message. Please do not reply to this email.</p>
+        <p>&copy; 2024 Reels-Orbit.Com. All rights reserved.</p>
+    </div>
+</div>
+</body>
+
+</html>

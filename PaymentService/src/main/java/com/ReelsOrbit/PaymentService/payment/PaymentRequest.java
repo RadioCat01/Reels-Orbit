@@ -6,6 +6,8 @@ public record PaymentRequest(
 
         Integer id,
         BigDecimal amount,
-        PaymentMethod paymentMethod
+        PaymentMethod paymentMethod,
+        String userName,
+        String userEmail
 ) {
 }

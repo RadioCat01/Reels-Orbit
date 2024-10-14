@@ -11,6 +11,8 @@ public record NotificationRequest(
         BigDecimal amount,
         PaymentMethod paymentMethod,
         String paymentId,
-        String payerId
+        String payerId,
+        String userName,
+        String userEmail
 ) {
 }

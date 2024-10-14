@@ -16,9 +16,7 @@ public class PaymentController {
     @PostMapping
     public ResponseEntity<String> createOrder(@RequestBody PaymentRequest paymentRequest){
 
-        System.out.println(paymentRequest);
         Response response = client.requestPayment(paymentRequest);
-        System.out.println(response);
         String redirectUrl = response.headers().get("Location").iterator().next();
 
         return ResponseEntity.ok(redirectUrl);

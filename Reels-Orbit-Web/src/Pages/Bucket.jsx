@@ -159,7 +159,7 @@ function Bucket() {
           <div className="backdrop" onClick={closePopup} />
           <div className='gradient-overlay'></div>
           <motion.div className="motiondev" initial={{opacity:0, y: -70}} animate={{opacity:1, y:-90}} transition={{duration: 0.4}} exit={{opacity:0, y:20}}>
-             <BucketPop movie={selectedMovie} onClose={closePopup} />
+             <BucketPop movie={selectedMovie} user={user} onClose={closePopup} />
           </motion.div>
         </>
       )}   

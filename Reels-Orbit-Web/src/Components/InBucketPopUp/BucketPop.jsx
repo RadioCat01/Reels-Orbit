@@ -5,16 +5,19 @@ import paypal from '../../assets/paypal.png';
 import amazon from '../../assets/social.png';
 import aEx from '../../assets/american-express.png';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
 
 
-function BucketPop({movie}) {
+function BucketPop({movie, user}) {
 
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
     const [loading, setLoading] = useState(false);
     
 
+    useEffect(()=>{
+      console.log(user);
+    },[user])
    
     const handlePayment = async() => {
       setLoading(true);
@@ -22,7 +25,10 @@ function BucketPop({movie}) {
       const paymentRequest = {
         id: movie.id,
         amount: movie.price,
-        paymentMethod: 'PAYPAL'
+        paymentMethod: 'PAYPAL',
+        userName: user.name,
+        userEmail: user.email
+
       };
 
       console.log(paymentRequest);
