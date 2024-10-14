@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/EmailService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PaymentService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ReactiveSecurity/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/discoveryService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/securityClient/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/userService/src/main/java" charset="UTF-8" />

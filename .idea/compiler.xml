@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="securityClient" />
         <module name="discoveryService" />
+        <module name="ReactiveSecurity" />
         <module name="EmailService" />
         <module name="PaymentService" />
         <module name="userService" />
@@ -19,6 +20,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="EmailService" options="-parameters" />
       <module name="PaymentService" options="-parameters" />
+      <module name="ReactiveSecurity" options="-parameters" />
       <module name="discoveryService" options="-parameters" />
       <module name="securityClient" options="-parameters" />
       <module name="userService" options="-parameters" />
