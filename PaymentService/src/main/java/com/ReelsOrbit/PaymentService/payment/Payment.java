@@ -2,11 +2,9 @@ package com.ReelsOrbit.PaymentService.payment;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,6 +25,7 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
-    private Integer orderId;
+    private String payerId;
+    private String paymentId;
 
 }

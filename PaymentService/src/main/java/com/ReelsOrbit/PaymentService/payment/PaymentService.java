@@ -1,5 +1,7 @@
 package com.ReelsOrbit.PaymentService.payment;
 
+import com.ReelsOrbit.PaymentService.notification.KafkaConfig;
+import com.ReelsOrbit.PaymentService.notification.NotificationRequest;
 import com.paypal.api.payments.Payment;
 import com.paypal.api.payments.*;
 import com.paypal.base.rest.APIContext;
@@ -16,8 +18,7 @@ import java.util.Locale;
 public class PaymentService {
 
     private final PaymentRepository repository;
-    //private final PaymentMapper mapper;
-    //private final NotificationProducer notificationProducer;
+    private final KafkaConfig kafkaConfig;
 
 
     private final APIContext apiContext;
@@ -71,20 +72,21 @@ public class PaymentService {
 
     }
 
-//    public Integer sendEmail(PaymentRequest request) {
-//        var payment = repository.save(mapper.toPayment(request));
-//
-////        notificationProducer.sendNotification(
-////                new PaymentNotificationRequest(
-////                        request.orderReference(),
-////                        request.amount(),
-////                        request.paymentMethod(),
-////                        request.customer().firstName(),
-////                        request.customer().lastName(),
-////                        request.customer().email()
-////                )
-////        );
-//
-//        return payment.getId();
-//    }
+    public void savePaymentInfoSendEmail(PaymentRequest incomingReq, String payerId, String paymentId) {
+
+        kafkaConfig.sendNotification(NotificationRequest.builder()
+                        .id(incomingReq.id())
+                        .amount(incomingReq.amount())
+                        .paymentMethod(incomingReq.paymentMethod())
+                        .payerId(payerId)
+                        .paymentId(paymentId)
+                        .build());
+
+        repository.save(com.ReelsOrbit.PaymentService.payment.Payment.builder()
+                .amount(incomingReq.amount())
+                .paymentMethod(incomingReq.paymentMethod())
+                .payerId(payerId)
+                .paymentId(paymentId)
+                .build());
+    }
 }

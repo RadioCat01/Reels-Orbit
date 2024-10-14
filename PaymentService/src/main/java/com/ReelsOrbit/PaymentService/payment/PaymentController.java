@@ -1,5 +1,6 @@
 package com.ReelsOrbit.PaymentService.payment;
 
+import com.ReelsOrbit.PaymentService.notification.KafkaConfig;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.core.rest.PayPalRESTException;
@@ -58,7 +59,9 @@ public class PaymentController {
         try{
             Payment payment = service.executePayment(paymentId,payerId);
             if(payment.getState().equals("approved")){
-                //service.sendEmail(incomingReq);
+
+                service.savePaymentInfoSendEmail(incomingReq,payerId,paymentId);
+
                 return new RedirectView("http://localhost:5173/paymentSuccess/"+incomingReq.id());
             }
         } catch (com.paypal.base.rest.PayPalRESTException e) {
