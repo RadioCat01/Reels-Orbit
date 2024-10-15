@@ -49,3 +49,7 @@ paypal:
   client-secret: ${paypal-client-secret}
   mode: sandbox
 
+paypal-success-url: ${paypal-success-url}
+paypal-cancel-url: ${paypal-cancel-url}
+payment-success-frontend-url: ${payment-success-frontend-url}
+paypal-cancel-frontend-url: ${paypal-cancel-frontend-url}

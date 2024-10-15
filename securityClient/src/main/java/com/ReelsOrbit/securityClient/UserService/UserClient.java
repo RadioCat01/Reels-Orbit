@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(
-        name = "USERSERVICE",
-        url = "http://localhost:8081"
+        name = "${feing-user-service-name}",
+        url = "${feing-user-service-url}"
 )
 public interface UserClient {
 

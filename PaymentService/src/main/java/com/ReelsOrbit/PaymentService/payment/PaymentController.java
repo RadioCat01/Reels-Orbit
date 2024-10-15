@@ -5,6 +5,7 @@ import com.paypal.api.payments.Payment;
 import com.paypal.core.rest.PayPalRESTException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -17,13 +18,23 @@ public class PaymentController {
     private final PaymentService service;
     public PaymentRequest incomingReq;
 
+    @Value("${paypal-success-url}")
+    private String paypal_success_url;
+    @Value("${paypal-cancel-url}")
+    private String paypal_cancel_url;
+    @Value("${payment-success-frontend-url}")
+    private String paypal_success_frontend_url;
+    @Value("${paypal-cancel-frontend-url}")
+    private String paypal_cancel_frontend_url;
+
+
     @PostMapping("/create")
     public RedirectView createPayment(
             @RequestBody PaymentRequest request
     ) throws PayPalRESTException {
         try {
-            String cancelUrl = "http://localhost:8053/payments/cancel";
-            String successUrl = "http://localhost:8053/payments/success";
+            String cancelUrl = paypal_cancel_url;
+            String successUrl = paypal_success_url;
 
             Payment payment = service.createPayment(
                     request.amount().toBigInteger().doubleValue(),
@@ -60,22 +71,22 @@ public class PaymentController {
 
                 service.savePaymentInfoSendEmail(incomingReq,payerId,paymentId);
 
-                return new RedirectView("http://localhost:5173/paymentSuccess/"+incomingReq.id());
+                return new RedirectView(paypal_success_frontend_url+incomingReq.id());
             }
         } catch (com.paypal.base.rest.PayPalRESTException e) {
             throw new RuntimeException(e);
         }
-        return new RedirectView("http://localhost:5173/paymentSuccess"+incomingReq.id());
+        return new RedirectView(paypal_success_frontend_url+incomingReq.id());
     }
 
     @GetMapping("/cancel")
     public RedirectView paymentCancel(){
-        return new RedirectView("http://localhost:5173/paymentCanceled");
+        return new RedirectView(paypal_cancel_frontend_url);
     }
 
     @GetMapping("/error")
     public RedirectView paymentError(){
-        return new RedirectView("http://localhost:5173/paymentCanceled");
+        return new RedirectView(paypal_cancel_frontend_url);
     }
 
 
