@@ -1,16 +1,32 @@
 spring:
   application:
     name: PaymentService
-  datasource:
-    url: jdbc:postgresql://localhost:5432/payment
-    username: username
-    password: password
-    driver-class-name: org.postgresql.Driver
+  #datasource:
+    #url: ${datasource-url-Pg}
+    #username: ${datasource-username-pg}
+    #password: ${datasource-password-pg}
+    #driver-class-name: org.postgresql.Driver
+  #jpa:
+    #hibernate:
+      #ddl-auto: update
+    #database: postgresql
+    #database-platform: org.hibernate.dialect.PostgreSQLDialect
+
   jpa:
-    hibernate:
-      ddl-auto: update
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+
+  cloud:
+    gcp:
+      project-id: ${gcp-project-id}
+      sql:
+        instance-connection-name: ${gcp-sql-instance-connection-name}
+        database-name: ${gcp-sql-database-name}
+      credentials:
+        location: ${gcp-credentials-location}
+
+  datasource:
+    username: ${datasource-username-CSQL}
+    password: ${datasource-password-CSQL}
 
   kafka:
     bootstrap-servers: localhost:9092
@@ -29,7 +45,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 paypal:
-  client-id: AbjzUpp06dy-_V9FgZnZUqVKQdwqKNkVI6satiVDqMgbiHVVFo0N2gw6NI9xtWNvhwRf0r5QGfJrwO8c
-  client-secret: EAsRr46qOtOy9hgAI8fOJ2kyKhzsgvU3fqXstSHUuorAgkGgCKWouTx4oyE5Czh9hxodzKf4LPma_CfL
+  client-id: ${paypal-client-id}
+  client-secret: ${paypal-client-secret}
   mode: sandbox
 
