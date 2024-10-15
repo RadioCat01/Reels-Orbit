@@ -59,9 +59,9 @@ public class ReactiveSecurityConfig {
             User currentUser = new User(authentication.getName(), email);
             System.out.println(currentUser);
 
-//            userClient.post().uri("/user").body(Mono.just(currentUser),User.class).retrieve().bodyToMono(String.class)
-//                    .then(Mono.fromRunnable(() -> webFilterExchange.getExchange().getResponse().setComplete()))
-//                    .then();;
+            userClient.post().uri("/user").body(Mono.just(currentUser),User.class).retrieve().bodyToMono(String.class)
+                    .then(Mono.fromRunnable(() -> webFilterExchange.getExchange().getResponse().setComplete()))
+                    .then();
 
             System.out.println("User " + authentication.getName() + " with email: " + email + " logged in.");
             return webFilterExchange.getExchange().getResponse().setComplete();
