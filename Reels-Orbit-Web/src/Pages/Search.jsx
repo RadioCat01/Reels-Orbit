@@ -41,9 +41,7 @@ function SearchPage() {
   }
 
   const onInfoClick=()=>{}
-
-
-
+  
   return (
     <>
     <div className='searchPage'>

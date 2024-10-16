@@ -7,6 +7,7 @@ import aEx from '../../assets/american-express.png';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
+import '../../Pages/Landing.css';
 
 
 function BucketPop({movie, user}) {
@@ -44,7 +45,7 @@ function BucketPop({movie, user}) {
 
      if (loading) {
             return (
-              <div className="loading-container">
+              <div className="loading-containerMain">
                 <InfinitySpin 
                   height="200" 
                   width="200" 

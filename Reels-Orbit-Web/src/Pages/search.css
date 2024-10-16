@@ -93,3 +93,113 @@ input::placeholder{
 .aboveFooter{
     height: 100px;
 }
+
+
+@media (max-width: 600px) {
+    .searchPage{
+        width: 99.89%;
+        min-height: 100vh;
+        font-family: "Inter", sans-serif;
+    }
+    .searcBackbtn{
+        margin-right: 10px;
+        width: 70px;
+        height: 36px;
+        color: white;
+        font-weight: 700;
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid rgb(216, 113, 216);
+    }
+    .searchContent{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .searchTop{
+        position: fixed;
+        width: 99.89%;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99999;
+        background-color: black;
+        border-bottom: 2px solid rgba(216, 113, 216, 0.5);
+    }
+    .searchFrom{
+        border: 3px solid rgba(142, 142, 142, 0.645);
+        width: 300px;
+        height: 30px;
+        border-radius: 20px;
+        position: absolute;
+        top: 110px;
+        left: 50px;
+        background-color: black;
+    }
+    form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    input{
+        border: none;
+        outline: none;
+        font-size: 18px;
+        margin-bottom: -10px;
+    }
+    input::placeholder{
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .searchInput{
+        background-color: transparent;
+        border: none;
+        color: white;
+        padding: 10px;
+        width: 540px;
+        margin-left: 14px;
+        height: 8px;
+        margin-bottom: 22px;
+    }
+    
+    .searchIcon{
+        padding: 2px;
+        margin-right: 14px;
+        cursor: pointer;
+        color: white;
+        margin-bottom: 20px;
+    }
+    
+    .searchbtn{
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+    .emptyBkt{
+        display: flex;
+        width: 1340px;
+        justify-content: center;
+        opacity: 0.6;
+        height: 10px;
+        margin-left: 20px;
+    }
+    
+    .pickedB{
+        margin-top: 170px;
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        width: 90%;
+        gap: 20px;
+        min-height: 40vh;
+        margin-bottom: 60px;
+        margin-left: 40px;
+    }
+    .aboveFooter{
+        height: 100px;
+    }
+    
+}

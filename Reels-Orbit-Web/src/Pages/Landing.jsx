@@ -124,7 +124,7 @@ function Landing() {
 
   if (loading) {
     return (
-      <div className="loading-container">
+      <div className='loading-containerMain'>
         <InfinitySpin 
           height="200" 
           width="200" 

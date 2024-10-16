@@ -121,7 +121,7 @@ function Pop({movie, onClose}) {
   };
 
   if (loading) {
-    return <div ref={popupRef} className="loading-container">
+    return <div ref={popupRef} className="loading-containerMain">
     <InfinitySpin 
       height="200" 
       width="200" 
