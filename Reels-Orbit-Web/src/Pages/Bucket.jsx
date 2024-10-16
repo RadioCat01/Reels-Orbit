@@ -107,12 +107,12 @@ function Bucket() {
       <div className="Bucketpage">
       <div className="bktTop">
        <div className="bktTopRight">
-       <div className='logo3 logoBkt'>
+           <div className='logo3 logoBkt'>
               <p className='reels'>Reels</p>
               <p className='orbit'>Orbit</p>
           </div> 
-      <h1>Movie Bucket</h1>
-      </div>
+           <h1>Movie Bucket</h1>
+       </div>
       <div className="BuktTopLeft">
       {user && <p>{ user.name} <UserRoundPen className="personIcon"/></p>}
       <button className="bucketBtn" onClick={()=>navigate("/")}>Home</button>

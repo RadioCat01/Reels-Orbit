@@ -28,3 +28,16 @@
 }
 
 
+@media (max-width: 600px) {
+    .remove{
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        border-radius: 6px;
+        border: none;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.4);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+    }
+}

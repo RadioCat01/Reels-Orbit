@@ -7,7 +7,7 @@
     width: 550px;
     height: 750px;
     border-radius: 20px;
-    z-index: 10000;
+    z-index: 100030;
     border: 2px solid rgba(203, 203, 203, 0.1);
     
 }
@@ -216,4 +216,127 @@
     transform: translate(-50%, -50%);
     z-index: 1005;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+
+  @media (max-width: 600px) {
+    
+    .pop2{
+      position: fixed;
+      left: 0%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(0, 0, 0);
+      width: 300px;
+      height: 550px;
+      border-radius: 20px;
+      z-index: 100030;
+      border: 2px solid rgba(203, 203, 203, 0.1);
+      
+  }
+   
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+  position: fixed;
+
+  width: 1600px;
+  height: 110vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 50%;
+  left: 4% !important;
+  transform: translate(-50%, -50%);
+  z-index: 10200;
+}
+  .mid{
+    font-size: 11px;
+  }
+
+  .info{
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .retail{
+    position: absolute;
+    bottom: -290px;
+    background: linear-gradient(to bottom right, rgba(54, 53, 53, 0.563) 0%, rgba(69, 68, 69, 0.465) 60%);
+    height: 240px;
+    width: 280px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    button{
+      font-size: 14px;
+      font-family: "Fredoka", sans-serif;
+      color: white;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+      height: 60px;
+      font-weight: 500;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      transition: background-color 0.5s ease, border-bottom 0.3s ease; 
+      }
+    button:hover{
+      background-color: rgb(39, 39, 39);
+    }
+   .paypal{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .fgo{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+  }
+  }
+  .infoFoot{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -330px;
+    left: 4px;
+    width: 400px;
+    font-size: 7px;
+    font-weight: 200;
+    opacity: 0.8;
+  }
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0vh;
+    background: rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    pointer-events: none; 
+  }
+  
+  .gradient-overlay-for-bgimage{
+    position: absolute;
+    top: 0px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); 
+    height:00px;
+    width: 00px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
   }

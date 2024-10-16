@@ -137,7 +137,6 @@ function Landing() {
 
   return (
     <div className="page">
-
       <div className={showLoginPopup ? 'blur-background' : ''}>
       <div className='nav'>
         <div className='navRight'>

@@ -176,3 +176,162 @@
     font-size: 15px;
     margin-bottom: 10px;
 }
+
+
+@media (max-width: 600px) {
+    .Bucketpage {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 46%, rgba(73, 53, 86, 0.8) 46%);
+    }
+
+    .logoBkt{
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      .reels{
+        font-size: 14px;
+        margin-bottom: -16px;
+      }
+      .orbit{
+        font-size: 14px;
+      }
+      
+  }
+
+    .bktTop {
+      flex-direction: row;
+      text-align: center;
+      justify-content: space-between;
+      align-items: center !important;
+      width: 100%;
+      z-index: 100020;
+      background-color: black;
+    }
+
+    
+  .bktTopRight{
+    margin: 0px;
+    width: 250px;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+  
+    .bktTop h1 {
+      font-size: 20px;
+      margin: 0px;
+    }
+  
+    .bucketBtn {
+      padding: 10px;
+      width: 13%;
+      border-radius: 8px;
+      width:62px;
+      margin-top: 18px;
+      margin-right: 9px;
+    }
+  
+    .personIcon {
+      margin-left: 5px;
+      width: 16px;
+    }
+
+    .BuktTopLeft{
+        margin-top: -24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        p{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 0px;
+            opacity: 0;
+        }
+    }
+  
+    .cont {
+      flex-direction: column;
+      padding-bottom: 30px;
+      min-height: auto;
+      justify-content: center;
+      align-items: center;
+      margin-top: -40px;
+    }
+  
+    .contLeft {
+      width: 10%;
+      border-right: none;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+  
+    .picked {
+      width: 100%;
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .welcome {
+      font-size: 24px;
+    }
+  
+    .bktUserName,
+    .bktUserEmail {
+      font-size: 14px;
+    }
+  
+    .bktTopRight {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .sidebar-content {
+      width: 80%;
+      max-width: 100%;
+      padding: 10px;
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
+    .sidebar-content h3,
+    .sidebar-content h4 {
+      font-size: 16px;
+    }
+  
+    .sidebar-content p {
+      font-size: 14px;
+    }
+  
+    .sidebar-content ul.genres {
+      justify-content: center;
+    }
+  
+    .emptyBkt {
+      font-size: 20px;
+      left: -260px;
+      top: 50px;
+    }
+  
+    .logoBkt {
+      margin-left: 0;
+    }
+  
+    .motiondev {
+      width: 90%;
+      left: 5%;
+    }
+  
+    .backdrop {
+      backdrop-filter: blur(1px);
+    }
+  }
+  
+
+  
