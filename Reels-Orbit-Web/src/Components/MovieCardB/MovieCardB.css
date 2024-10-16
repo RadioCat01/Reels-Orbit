@@ -9,3 +9,9 @@
     filter: brightness(0.8);
 }
   
+@media (max-width: 600px) {
+    .movie-posterB{
+        height: 200px;
+        border-radius: 10px;
+    }
+}

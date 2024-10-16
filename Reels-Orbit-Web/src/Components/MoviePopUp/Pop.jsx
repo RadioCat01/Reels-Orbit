@@ -18,6 +18,8 @@ function Pop({movie, onClose}) {
     const popupRef = useRef(null);
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'; 
 
+    
+
     // # Security Section
   const [user, setUser] = useState(null); 
   const [loading, setLoading] = useState(true); 
@@ -170,7 +172,7 @@ function Pop({movie, onClose}) {
       </div>
       <div className="popfix">
       {showLoginPopup && (
-            <Login onClose={closePopup} positionStyle={{ position: 'absolute', top: '500px', left: '320px' }}/>
+            <Login onClose={closePopup} positionStyle={{ position: 'absolute', top: '400px', left: '28px' }}/>
       )}
       </div>
      {wishlistPopupVisible && (

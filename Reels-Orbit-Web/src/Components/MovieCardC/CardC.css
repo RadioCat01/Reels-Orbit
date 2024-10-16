@@ -40,4 +40,8 @@
         font-family: "Inter", sans-serif;
         font-weight: 400;
     }
+    .bucket-movie-poster{
+        height: 260px;
+        border-radius: 10px;
+    }
 }

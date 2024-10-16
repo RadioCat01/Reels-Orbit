@@ -3,3 +3,9 @@
     border-radius: 10px;
 }
 
+@media (max-width: 600px) {
+    .movie-poster{
+        height: 200px;
+        border-radius: 10px;
+    }
+}

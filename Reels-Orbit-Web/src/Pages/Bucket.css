@@ -293,7 +293,7 @@
     }
   
     .sidebar-content {
-      width: 80%;
+      width: 60%;
       max-width: 100%;
       padding: 10px;
       margin-left: 0;
@@ -302,15 +302,19 @@
   
     .sidebar-content h3,
     .sidebar-content h4 {
-      font-size: 16px;
+      font-size: 14px;
     }
   
     .sidebar-content p {
-      font-size: 14px;
+      font-size: 10px;
     }
   
     .sidebar-content ul.genres {
       justify-content: center;
+
+      li{
+        font-size: 10px;
+      }
     }
   
     .emptyBkt {

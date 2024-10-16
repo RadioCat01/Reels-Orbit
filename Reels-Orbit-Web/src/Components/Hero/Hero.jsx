@@ -16,7 +16,11 @@ function Hero() {
   return (
     <div className="herosection">
         <div className="banner">
-          <div className="Maincontent">
+        <div className='logoHero'>
+              <p className='reels'>Reels</p>
+              <p className='orbit'>Orbit</p>
+        </div>
+     
       <div className="slider"  style={{ '--quantity': 12 }}>
         <div className="item" style={{ '--position': 1 }}><img src={joker} alt="bg" /></div>
         <div className="item" style={{ '--position': 2 }}><img src={outlaw} alt="bg" /></div>
@@ -32,13 +36,7 @@ function Hero() {
         <div className="item" style={{ '--position': 12 }}><img src={gf} alt="bg" /></div>
       </div>
       </div>
-      <div className="content">
-        <div className='logoHero'>
-              <p className='reels'>Reels</p>
-              <p className='orbit'>Orbit</p>
-        </div>
-      </div>
-     </div>
+
      </div>
   )
 }

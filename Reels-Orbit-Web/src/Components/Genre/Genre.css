@@ -33,3 +33,41 @@
 .blind{
     min-height: 200px;
 }
+
+@media (max-width: 600px) {
+    .GenreBackDrop{
+        border-radius: 40px;
+        margin-right: 24px;
+        object-fit: cover;
+    }
+    
+    .genreCard:hover{
+        transform: scale(1.001);
+        filter: brightness(0.8);
+    }
+    
+    .genreCard{
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease-in-out;
+        width: 250px;
+    }
+    .genreBg{
+        height: 32px;
+        margin-top:-72px;
+        margin-right: 24px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+        color: white;
+        font-family: "Fredoka", sans-serif;
+        font-weight: 400;
+        padding: 20px;
+        padding-left: 30px;
+    
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+    
+    .blind{
+        min-height: 200px;
+    }
+}

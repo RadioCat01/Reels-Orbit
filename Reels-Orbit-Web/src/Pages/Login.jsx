@@ -2,8 +2,25 @@
 import { ChevronsLeft } from 'lucide-react';
 import './Login.css';
 import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 function Home({onClose, positionStyle}) {
+
+  const popupRef = useRef(null);
+
+ 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
 
     const googleLogin = () => {
         window.location.href ='http://localhost:8080/oauth2/authorization/google';
@@ -19,7 +36,7 @@ function Home({onClose, positionStyle}) {
 
 
    return (
-     <motion.div style={positionStyle} className='pop' initial={{opacity:0, y: 20}} animate={{opacity:1, y:0}} transition={{duration: 0.4}}>
+     <motion.div ref={popupRef} style={positionStyle} className='pop' initial={{opacity:0, y: 20}} animate={{opacity:1, y:0}} transition={{duration: 0.4}}>
       <button className='icon'><ChevronsLeft className='iconC' onClick={onClose}/></button>
       <div className='left'>
       <div className='logo2'>

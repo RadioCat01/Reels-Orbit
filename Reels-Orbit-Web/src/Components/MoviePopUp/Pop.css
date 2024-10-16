@@ -186,3 +186,159 @@ span{
   
 }
 
+@media (max-width: 600px) {
+  @media (max-width: 600px) {
+    .popup-content {
+      margin: 10px;
+      min-height: 140vh;
+      z-index: 1000; 
+      color: rgb(255, 255, 255);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  
+    .images {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+      opacity: 1;
+    }
+  
+    .popup-back {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(6px);
+    }
+  
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: aliceblue;
+      z-index: 1002;
+      padding: 5px;
+    }
+  
+    .Cont {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      width: 80%;
+      margin: 10px 0;
+    }
+  
+    .popup-poster {
+      width: 140px;
+      margin-left: 25px;
+      margin-top: 30px;
+      border-radius: 8px;
+    }
+  
+    .info {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+  
+    .top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 180px;
+      margin-left: 0px;
+      height: 100px;
+    }
+  
+    .top h2 {
+      font-size: 20px;
+    }
+  
+    .top p {
+      display: flex;
+      align-items: center;
+      margin-top: -16px;
+      font-size: 14px;
+    }
+  
+    .star {
+      width: 16px;
+      margin-left: 5px;
+      color: rgb(255, 255, 74);
+    }
+  
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 15px 0;
+      width: 200px;
+    }
+  
+    .buttons button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      background-color: hsl(200, 2%, 39%);
+      color: #fdfdfd;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  
+    .overView {
+      margin-top: 20px;
+      width: 80%;
+      text-align: center;
+      font-size: 14px;
+      margin: 0px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  
+    .AddInfo {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+      width: 80%;
+      text-align: center;
+      margin: 10px 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  
+    .foot {
+      width: 80%;
+      margin: 10px auto;
+      text-align: center;
+      font-size: 10px;
+      color: rgb(158, 158, 158);
+    }
+  
+    .wishlist-popup {
+      font-size: 12px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgb(156, 80, 173);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      z-index: 10020;
+    }
+  }
+  
+}

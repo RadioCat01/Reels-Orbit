@@ -138,6 +138,7 @@ function Landing() {
   return (
     <div className="page">
       <div className={showLoginPopup ? 'blur-background' : ''}>
+
       <div className='nav'>
         <div className='navRight'>
         <div className='logo4'>
@@ -162,7 +163,7 @@ function Landing() {
         <div className='navLeft'>
           <div className='userInfo'>
           {user?.email ? <p className='userName'>{user.email}</p> : <p className='userName'>Guest</p>}
-          {user?.email ?  <LogOut onClick={logout}/> : ''}
+          {user?.email ?  <LogOut className='lout' onClick={logout}/> : ''}
           <Search className='search' onClick={handleSearchClick}/>
           <p className='bt' onClick={handleButtonClick}>Bucket</p>
           </div>
