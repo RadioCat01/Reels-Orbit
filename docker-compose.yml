@@ -1,5 +1,30 @@
 version: v1
 services:
+  payment-service:
+    image: radiocat2000/reels-orbit-paymentservice:latest
+    container_name: ReelsOrbit-paymentService
+    ports:
+      - "8053:8053"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - gcp-project-id=reels-orbit
+      - gcp-sql-instance-connection-name=reels-orbit:asia-south2:reels-orbit-sql
+      - gcp-sql-database-name=payment
+      - gcp-credentials-location=file:/app/config/credentials.json
+      - datasource-username-CSQL=postgres
+      - datasource-password-CSQL=password
+      - eureka-default-zone=http://localhost:8761/eureka
+      - paypal-client-id=AbjzUpp06dy-_V9FgZnZUqVKQdwqKNkVI6satiVDqMgbiHVVFo0N2gw6NI9xtWNvhwRf0r5QGfJrwO8c
+      - paypal-client-secret=EAsRr46qOtOy9hgAI8fOJ2kyKhzsgvU3fqXstSHUuorAgkGgCKWouTx4oyE5Czh9hxodzKf4LPma_CfL
+      - paypal-success-url=http://localhost:8053/payments/success
+      - paypal-cancel-url=http://localhost:8053/payments/cancel
+      - payment-success-frontend-url=http://localhost:5173/paymentSuccess/
+      - paypal-cancel-frontend-url=http://localhost:5173/paymentCanceled/
+    volumes:
+      - ./reels-orbit-3f2299e99b9d.json:/app/config/credentials.json
+    networks:
+      - ReelsOrbit
+
   postgres:
     container_name: ReelsOrbit-postgres
     image: postgres
