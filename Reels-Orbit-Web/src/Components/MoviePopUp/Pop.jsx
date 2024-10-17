@@ -172,7 +172,7 @@ function Pop({movie, onClose}) {
       </div>
       <div className="popfix">
       {showLoginPopup && (
-            <Login onClose={closePopup} positionStyle={{ position: 'absolute', top: '400px', left: '28px' }}/>
+            <Login onClose={closePopup} positionStyle={{ position: 'absolute', top: '450px'}}/>
       )}
       </div>
      {wishlistPopupVisible && (
