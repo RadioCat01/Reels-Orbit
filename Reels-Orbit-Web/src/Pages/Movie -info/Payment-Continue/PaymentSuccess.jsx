@@ -6,6 +6,7 @@ import { InfinitySpin } from 'react-loader-spinner';
 import '../../Bucket.css';
 import { useNavigate } from 'react-router-dom';
 import { SquareChevronLeft } from 'lucide-react';
+import '../../Landing.css';
 
 function PaymentSuccess() {
 
@@ -32,7 +33,7 @@ function PaymentSuccess() {
 
   if (!movieDetails) {
     return (
-      <div className="loading-container">
+      <div className="loading-containerMain">
         <InfinitySpin 
           height="200" 
           width="200" 

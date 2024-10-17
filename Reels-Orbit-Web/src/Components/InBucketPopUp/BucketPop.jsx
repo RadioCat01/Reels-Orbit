@@ -46,7 +46,7 @@ function BucketPop({movie, user}) {
 
      if (loading) {
             return (
-              <div className="loading-containerMain">
+              <div className="loading-container">
                 <InfinitySpin 
                   height="200" 
                   width="200" 

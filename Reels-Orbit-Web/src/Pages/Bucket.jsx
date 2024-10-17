@@ -13,8 +13,8 @@ import { UserRoundPen } from 'lucide-react';
 import '../Components/Nav/Nav.css';
 import { CircleUser } from 'lucide-react';
 import { Mail } from 'lucide-react';
-
 import { useNavigate } from 'react-router-dom';
+import './Landing.css';
 
 function Bucket() {
 
@@ -31,8 +31,6 @@ function Bucket() {
   const securityAPI = import.meta.env.VITE_SECURITY_API_URL;
 
   useEffect(() => {
-    
-
     axios.get(`${securityAPI}/Security`, { withCredentials: true })
         .then(response => {
           if (response.data && Object.keys(response.data).length > 0) {
@@ -96,7 +94,7 @@ function Bucket() {
 
   if (loading) {
     return (
-      <div className="loading-container">
+      <div className="loading-containerMain">
         <InfinitySpin 
           height="200" 
           width="200" 
