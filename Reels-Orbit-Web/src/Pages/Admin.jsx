@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { InfinitySpin } from "react-loader-spinner";
 import './AdminLogin/Admin.css';
+import './Landing.css';
 
 function Admin() {
 
@@ -40,7 +41,7 @@ function Admin() {
       };
   
     if (loading) {
-      return <div className="loading-container">
+      return <div className="loading-containerMain">
       <InfinitySpin 
         height="200" 
         width="200" 
@@ -52,25 +53,37 @@ function Admin() {
 
   return (
     <div className="user-management-container">
-      <h1 className="title">User List</h1>
-      {users && users.length > 0 ? (
-        <div className="user-list">
+    <h1 className="title">User List</h1>
+    {users && users.length > 0 ? (
+      <table className="user-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
           {users.map((user) => (
-            <div key={user.userId} className="user-item">
-              <span>{user.userId} - {user.email}</span>
-              <button
-                className="remove-button"
-                onClick={() => removeUser(user.userId)}
-              >
-                Remove User
-              </button>
-            </div>
+            <tr key={user.userId}>
+              <td>{user.userId}</td>
+              <td>{user.email}</td>
+              <td>
+                <button
+                  className="remove-button"
+                  onClick={() => removeUser(user.userId)}
+                >
+                  Remove
+                </button>
+              </td>
+            </tr>
           ))}
-        </div>
-      ) : (
-        <p className="no-users">No Users</p>
-      )}
-    </div>
+        </tbody>
+      </table>
+    ) : (
+      <p className="no-users">No Users</p>
+    )}
+  </div>
   )
 }
 

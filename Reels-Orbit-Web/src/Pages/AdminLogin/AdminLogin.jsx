@@ -11,7 +11,7 @@ function Login({ onLogin }) {
   const handleLogin = (e) => {
     e.preventDefault();
    
-    if (username === 'admin' && password === 'admin123') {
+    if (username === 'admin' && password === 'radiocat') {
       onLogin(true);
       navigate('/admin');  
     } else {
