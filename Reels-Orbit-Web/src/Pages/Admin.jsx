@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { InfinitySpin } from "react-loader-spinner";
-
+import './AdminLogin/Admin.css';
 
 function Admin() {
 
@@ -51,19 +51,26 @@ function Admin() {
     }
 
   return (
-    <div>
-    <h1>User List</h1>
-    {users && users.length > 0 ? (
-      users.map((user) => (
-        <p key={user.userId}>
-          {user.userId} - {user.email}
-          <button onClick={() => removeUser(user.userId)}>Remove User</button>
-        </p>
-      ))
-    ) : (
-      <p>No Users</p> 
-    )}
-  </div>
+    <div className="user-management-container">
+      <h1 className="title">User List</h1>
+      {users && users.length > 0 ? (
+        <div className="user-list">
+          {users.map((user) => (
+            <div key={user.userId} className="user-item">
+              <span>{user.userId} - {user.email}</span>
+              <button
+                className="remove-button"
+                onClick={() => removeUser(user.userId)}
+              >
+                Remove User
+              </button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="no-users">No Users</p>
+      )}
+    </div>
   )
 }
 

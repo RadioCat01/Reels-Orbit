@@ -1,22 +1,22 @@
-/* General styling for the login container */
+
 .login-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f7f7f7;
+    min-height: 80vh;
+    background-color: black;
     padding: 20px;
+    font-family: "Inter", sans-serif;
   }
   
-  /* Styling for the form */
+
   .login-form {
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    border-radius: 20px;
+    border: 2px solid rgb(216, 113, 216);
+    width: 20%;
     display: flex;
     flex-direction: column;
   }
@@ -27,15 +27,9 @@
     flex-direction: column;
   }
   
-  .input-group label {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-  
   .input-group input {
     padding: 10px;
-    font-size: 16px;
+    font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
@@ -45,11 +39,12 @@
     border-color: #007bff;
   }
   
-  /* Styling for the login button */
+ 
   .login-btn {
     padding: 12px;
-    background-color: #007bff;
+    background-color: rgb(216, 113, 216);
     color: white;
+    font-weight: 700;
     border: none;
     border-radius: 4px;
     font-size: 16px;
@@ -61,7 +56,7 @@
     background-color: #0056b3;
   }
   
-  /* Media queries for smaller screens */
+
   @media (max-width: 768px) {
     .login-container {
       padding: 10px;
@@ -83,7 +78,7 @@
   
   @media (max-width: 480px) {
     .login-form {
-      width: 100%;
+      width: 80%;
       padding: 15px;
     }
   

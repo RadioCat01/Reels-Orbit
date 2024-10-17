@@ -21,19 +21,17 @@ function Login({ onLogin }) {
 
   return (
     <div className="login-container">
-    <h2>Login</h2>
     <form className="login-form" onSubmit={handleLogin}>
+    <h2>Admin Login</h2>
       <div className="input-group">
-        <label>Username:</label>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Admin username"
+          placeholder="User Name"
         />
       </div>
       <div className="input-group">
-        <label>Password:</label>
         <input
           type="password"
           value={password}
