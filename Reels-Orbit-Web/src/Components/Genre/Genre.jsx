@@ -7,7 +7,7 @@ function Genre() {
 
     const [collections, setCollections] = useState([]);
     const [error, setError] = useState(null);
-    const API_KEY = '451f5c6580786f25788cd5071631a6aa';
+    const API_KEY = import.meta.env.VITE_MOVIEDB_API_KEY;
 
     useEffect(() => {
         const storedCollections = localStorage.getItem('Collections');

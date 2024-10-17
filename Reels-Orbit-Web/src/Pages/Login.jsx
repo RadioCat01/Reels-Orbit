@@ -8,6 +8,8 @@ function Home({onClose, positionStyle}) {
 
   const popupRef = useRef(null);
 
+  const securityAPI = import.meta.env.VITE_SECURITY_API_URL;
+
  
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -23,15 +25,15 @@ function Home({onClose, positionStyle}) {
   }, [onClose]);
 
     const googleLogin = () => {
-        window.location.href ='http://localhost:8080/oauth2/authorization/google';
+        window.location.href =`${securityAPI}/oauth2/authorization/google`;
     };
 
     const facebookLogin = () => {
-        window.location.href ='http://localhost:8080/oauth2/authorization/facebook';
+        window.location.href =`${securityAPI}/oauth2/authorization/facebook`;
     };
 
     const twitterLogin = () => {
-      window.location.href ='http://localhost:8080/oauth2/authorization/twitter';
+      window.location.href =`${securityAPI}/oauth2/authorization/twitter`;
   };
 
 

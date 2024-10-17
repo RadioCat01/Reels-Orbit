@@ -8,10 +8,11 @@ function Admin() {
 
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const userAPI_Url = import.meta.env.VITE_USER_API_URL;
   
     useEffect(() => {
-     
-        axios.get("http://localhost:8081/user", {withCredentials: true})
+        axios.get(`${userAPI_Url}/user`, {withCredentials: true})
         .then(response => {
             if(response.data){
                 setUsers(response.data);
@@ -28,7 +29,7 @@ function Admin() {
 
     const removeUser = (userId) => {
         axios
-          .post("http://localhost:8081/user/delete", null, {
+          .post(`${userAPI_Url}/user/delete`, null, {
             params: { userId: userId },
             withCredentials: true,
           })

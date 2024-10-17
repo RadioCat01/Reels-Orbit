@@ -14,7 +14,7 @@ import SearchPop from '../Components/MoviePopUp/SearchPop';
 
 function SearchPage() {
 
-  const API_KEY = '451f5c6580786f25788cd5071631a6aa';
+  const API_KEY = import.meta.env.VITE_MOVIEDB_API_KEY;
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);

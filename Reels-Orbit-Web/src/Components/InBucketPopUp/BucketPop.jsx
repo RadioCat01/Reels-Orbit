@@ -15,6 +15,7 @@ function BucketPop({movie, user}) {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
     const [loading, setLoading] = useState(false);
     
+    const userApiUrl = import.meta.env.VITE_USER_API_URL;
 
     useEffect(()=>{
       console.log(user);
@@ -34,7 +35,7 @@ function BucketPop({movie, user}) {
 
       console.log(paymentRequest);
 
-      const response = await axios.post('http://localhost:8081/payment', paymentRequest, {
+      const response = await axios.post(`${userApiUrl}/payment`, paymentRequest, {
                 withCredentials: true,
             });
             const redirectUrl = response.data;  

@@ -1,10 +1,9 @@
 import './PaymentSuccess.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { InfinitySpin } from 'react-loader-spinner';
 import '../../Bucket.css';
-import Footer from '../../../Components/Footer/Footer.jsx';
 import { useNavigate } from 'react-router-dom';
 import { SquareChevronLeft } from 'lucide-react';
 
@@ -17,9 +16,10 @@ function PaymentSuccess() {
   const navigate = useNavigate();
 
   useEffect(()=>{
+    const userAPIUrl=import.meta.env.VITE_USER_API_URL;
     const fetchMovieDetails = async ()=>{
       
-      const respponse = await axios.get(`http://localhost:8081/movies/byId/${movieId}`);
+      const respponse = await axios.get(`${userAPIUrl}/movies/byId/${movieId}`);
       setMovieDetails(respponse.data);
       console.log(respponse.data);
     };

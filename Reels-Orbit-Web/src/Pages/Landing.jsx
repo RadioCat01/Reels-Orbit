@@ -16,7 +16,7 @@ import '../Components/Nav/Nav.css';
 import { Search } from 'lucide-react';
 import { LogOut } from 'lucide-react';
 
-import { Link as ScrollLink, Element, scroller } from 'react-scroll';
+import { Link as ScrollLink, Element } from 'react-scroll';
 
 
 function Landing() {
@@ -30,8 +30,10 @@ function Landing() {
   const [activeSection, setActiveSection] = useState('home');
 
   // # Security Section
+  const securityAPI = import.meta.env.VITE_SECURITY_API_URL;
+
   useEffect(() => {
-    axios.get('http://localhost:8080/Security', { withCredentials: true })
+    axios.get(`${securityAPI}/Security`, { withCredentials: true })
         .then(response => {
 
           if (response.data && Object.keys(response.data).length > 0) {
@@ -119,7 +121,7 @@ function Landing() {
 
   const logout = async () => {
     window.location.reload();
-    axios.post('http://localhost:8080/logout', {}, { withCredentials: true });   
+    axios.post(`${securityAPI}/logout`, {}, { withCredentials: true });   
   };
 
   if (loading) {

@@ -8,10 +8,13 @@ function Login({ onLogin }) {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const adminUserName=import.meta.env.VITE_ADMIN_USERNAME;
+  const adminPassword=import.meta.env.VITE_ADMIN_PASSWORD;
+
   const handleLogin = (e) => {
     e.preventDefault();
    
-    if (username === 'admin' && password === 'radiocat') {
+    if (username === `${adminUserName}` && password === `${adminPassword}`) {
       onLogin(true);
       navigate('/admin');  
     } else {

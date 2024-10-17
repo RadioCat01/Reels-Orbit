@@ -25,11 +25,13 @@ function Pop({movie, onClose}) {
   const [loading, setLoading] = useState(true); 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false); 
+  const navigate = useNavigate(); 
 
   const [wishlistPopupVisible, setWishlistPopupVisible] = useState(false); 
   const [wishlistPopupMessage, setWishlistPopupMessage] = useState('');
+
+  const securityApiUrl = import.meta.env.VITE_SECURITY_API_URL;
+  const userApiUrl = import.meta.env.VITE_USER_API_URL;
 
     useEffect(() => {
         if (popupRef.current) {
@@ -39,7 +41,7 @@ function Pop({movie, onClose}) {
 
       // # Security Section
   useEffect(() => {
-    axios.get('http://localhost:8080/Security', { withCredentials: true })
+    axios.get(`${securityApiUrl}/Security`, { withCredentials: true })
         .then(response => {
             setUser(response.data);
             setLoading(false); 
@@ -87,7 +89,7 @@ function Pop({movie, onClose}) {
           email:user.email
         };
         
-        axios.post('http://localhost:8081/movies', movieData)
+        axios.post(`${userApiUrl}/movies`, movieData)
           .then(response => {
             console.log('Movie saved successfully:', response.data);
 

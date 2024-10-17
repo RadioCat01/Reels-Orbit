@@ -17,11 +17,13 @@ function SearchPop({movie, onClose}) {
     const popupRef = useRef(null);
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'; 
 
+    const securityApiUrl = import.meta.env.VITE_SECURITY_API_URL;
+    const userApiUrl = import.meta.env.VITE_USER_API_URL;
+
     // # Security Section
   const [user, setUser] = useState(null); 
   const [loading, setLoading] = useState(true); 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
-  const navigate = useNavigate();
 
   const [wishlistPopupVisible, setWishlistPopupVisible] = useState(false); 
   const [wishlistPopupMessage, setWishlistPopupMessage] = useState('');
@@ -34,7 +36,7 @@ function SearchPop({movie, onClose}) {
 
       // # Security Section
   useEffect(() => {
-    axios.get('http://localhost:8080/Security', { withCredentials: true })
+    axios.get(`${securityApiUrl}/Security`, { withCredentials: true })
         .then(response => {
             setUser(response.data);
             setLoading(false); 
@@ -81,14 +83,13 @@ function SearchPop({movie, onClose}) {
           email:user.email
         };
         
-        axios.post('http://localhost:8081/movies', movieData)
+        axios.post(`${userApiUrl}/movies`, movieData)
           .then(response => {
             console.log('Movie saved successfully:', response.data);
 
             setWishlistPopupMessage(`Item "${movie.title}" added to the Bucket !`);
             setWishlistPopupVisible(true);
-
-            // Automatically hide the popup after 3 seconds
+            
             setTimeout(() => {
                 setWishlistPopupVisible(false);
             }, 3000);

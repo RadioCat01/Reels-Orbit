@@ -27,14 +27,19 @@ function Bucket() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const navigate = useNavigate();
 
+  const userAPIUrl=import.meta.env.VITE_USER_API_URL;
+  const securityAPI = import.meta.env.VITE_SECURITY_API_URL;
+
   useEffect(() => {
-    axios.get('http://localhost:8080/Security', { withCredentials: true })
+    
+
+    axios.get(`${securityAPI}/Security`, { withCredentials: true })
         .then(response => {
           if (response.data && Object.keys(response.data).length > 0) {
             setUser(response.data);
             const userId = response.data.sub || response.data.id;
             setUserId(userId);
-            axios.get(`http://localhost:8081/movies?userId=${userId}`, { withCredentials: true })
+            axios.get(`${userAPIUrl}/movies?userId=${userId}`, { withCredentials: true })
             .then(movieResponse => {
               if (movieResponse.data) {
                 setMovies(movieResponse.data);
@@ -63,7 +68,7 @@ function Bucket() {
       movieId: movie.id,
       userId: userId
     }
-    axios.post('http://localhost:8081/movies/delete', DeleteMovieRequest)
+    axios.post(`${userAPIUrl}/movies/delete`, DeleteMovieRequest)
     .then(response => {
       console.log(response);
       setMovies(movies.filter(m => m.id !== movie.id));
