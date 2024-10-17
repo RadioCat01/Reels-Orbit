@@ -1,28 +1,27 @@
 spring:
   application:
     name: PaymentService
-      #datasource:
-      #url: ${datasource-url-Pg}
-      #username: ${datasource-username-pg}
-      #password: ${datasource-password-pg}
-      #driver-class-name: org.postgresql.Driver
-      #jpa:
-      #hibernate:
-    #ddl-auto: update
-    #database: postgresql
-    #database-platform: org.hibernate.dialect.PostgreSQLDialect
+    datasource:
+      url: ${datasource-url-Pg}
+      username: ${datasource-username-pg}
+      password: ${datasource-password-pg}
+      driver-class-name: org.postgresql.Driver
+      jpa:
+      hibernate:
+    ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-  jpa:
-    generate-ddl: true
-
-  cloud:
-    gcp:
-      project-id: reels-orbit
-      sql:
-        instance-connection-name: reels-orbit:asia-south2:reels-orbit-sql
-        database-name: payment
-      credentials:
-        location: file:./reels-orbit-3f2299e99b9d.json
+  #jpa:
+    #generate-ddl: true
+  #cloud:
+    #gcp:
+      #project-id: reels-orbit
+      #sql:
+        #instance-connection-name: reels-orbit:asia-south2:reels-orbit-sql
+        #database-name: payment
+      #credentials:
+        #location: file:./reels-orbit-3f2299e99b9d.json
 
   datasource:
     username: postgres
