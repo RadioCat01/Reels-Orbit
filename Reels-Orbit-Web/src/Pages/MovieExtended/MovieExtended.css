@@ -1,0 +1,19 @@
+.MVEPage{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    justify-content: space-between;
+}
+.movieSection{
+    border: 1px solid green;
+    position: relative;
+    padding: 40px;
+}
+.movieInfo{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+.commentsSection{
+    border: 1px solid red;
+}

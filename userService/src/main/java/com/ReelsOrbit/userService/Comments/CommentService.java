@@ -16,8 +16,9 @@ public class CommentService {
     private final MovieRepository movieRepository;
 
     public String save(Comment comment) {
-
+        System.out.println(comment);
         Optional<Movie> commentedMovie = movieRepository.findByMovieId(comment.getMovie().getMovieId());
+
         if (commentedMovie.isPresent()) {
             comment.setMovie(commentedMovie.get());
             comment.setLikes(0);
@@ -29,6 +30,7 @@ public class CommentService {
     }
 
     public List<Comment> getCommentsByMovieId(Integer movieId) {
+        System.out.println(movieId);
         return commentRepository.findAllByMovieId(movieId);
     }
 
