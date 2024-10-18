@@ -9,6 +9,7 @@ import PaymentCanceled from './Pages/Movie -info/Payment-Continue/PaymentCancele
 import AdminLogin from './Pages/AdminLogin/AdminLogin';
 import ProtectedRoute from './Pages/AdminLogin/ProtectedRoutes';
 import { useState } from 'react';
+import MovieExtended from './Pages/MovieExtended/MovieExtended';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         <Route path='/search' element={<Search/>}/>
         <Route path='/paymentSuccess/:movieId' element={<PaymentSuccess/>}/>
         <Route path='/paymentCanceled' element={<PaymentCanceled/>}/>
-
+        <Route path="/movie/:id" element={<MovieExtended />} />
         <Route path='/login' element={<AdminLogin onLogin={setIsAuthenticated} />}/>
         <Route
           path="/admin"

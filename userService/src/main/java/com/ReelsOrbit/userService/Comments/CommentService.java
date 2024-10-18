@@ -36,9 +36,8 @@ public class CommentService {
         commentRepository.deleteById(commentId);
     }
 
-    public String addLike(Integer commentId) {
-        Optional<Comment> comment = commentRepository.findById(commentId);
-
+    public String addLike(LikeRequest request) {
+        Optional<Comment> comment = commentRepository.findById(request.commentId());
         if (comment.isPresent()) {
               comment.get().setLikes(comment.get().getLikes()+1);
               commentRepository.save(comment.get());

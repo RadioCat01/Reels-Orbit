@@ -30,7 +30,7 @@ public class CommentController {
         return ResponseEntity.ok("Comment deleted");
     }
     @PatchMapping("/addLike")
-    public ResponseEntity<String> addLikeComment(@RequestBody Integer commentId) {
-        return ResponseEntity.ok(commentService.addLike(commentId));
+    public ResponseEntity<String> addLikeComment(@RequestBody LikeRequest request) {
+        return ResponseEntity.ok(commentService.addLike(request));
     }
 }

@@ -84,8 +84,9 @@ function Bucket() {
   }
 
   const handleInfo = (movie) =>{
-    setSelectedMovie(movie);
-    setInfoPopUp(true);
+    navigate(`/movie/${movie.id}`, { state: { movie, user } });
+    //setSelectedMovie(movie);
+    //setInfoPopUp(true);
   }
   const closePopup = () => {
     setInfoPopUp(false); 
