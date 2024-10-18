@@ -44,7 +44,7 @@ public class CommentService {
               commentRepository.save(comment.get());
             return "Like successfully added";
         }else {
-            return "Something went wrong";
+            return "Something went wrong !";
         }
 
     }
