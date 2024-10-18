@@ -10,8 +10,13 @@ import java.util.Optional;
 
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
-    Optional<Movie> findByMovieIdAndUserId(Integer movieId, String userId);
-    List<Movie> findByUserId(String userId);
+    Optional<Movie> findByMovieIdAndPersistingUserId(Integer movieId, String userId);
+
+    List<Movie> findByPersistingUserId(String userId);
+
+    Optional<Movie> findByMovieId(Integer movieId);
+
+
 
     @Modifying
     @Transactional

@@ -79,7 +79,7 @@ function SearchPop({movie, onClose}) {
           original_language: movie.original_language,
           vote_count: movie.vote_count,
 
-          userId: user.sub || user.id,
+          persistingUserId: user.sub || user.id,
           email:user.email
         };
         

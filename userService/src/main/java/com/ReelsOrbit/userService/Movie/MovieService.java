@@ -21,13 +21,13 @@ public class MovieService {
 
     public String save(Movie movie) {
 
-        Optional<Movie> existingMovie = movieRepository.findByMovieIdAndUserId(movie.getMovieId(), movie.getUserId());
+        Optional<Movie> existingMovie = movieRepository.findByMovieIdAndPersistingUserId(movie.getMovieId(), movie.getPersistingUserId());
 
         if (existingMovie.isPresent()) {
             return "Movie with the same movieId and userId already exists!";
         }
 
-        Optional<User> userOptional = userRepository.findByUserId(movie.getUserId());
+        Optional<User> userOptional = userRepository.findByUserId(movie.getPersistingUserId());
 
         if (userOptional.isEmpty()) {
             return "User does not exist!";
@@ -43,7 +43,7 @@ public class MovieService {
     }
 
     public ResponseEntity<List<Movie>> getMoviesById(String userId) {
-        List<Movie> movies = movieRepository.findByUserId(userId);
+        List<Movie> movies = movieRepository.findByPersistingUserId(userId);
 
         if (movies.isEmpty()) {
             return ResponseEntity.noContent().build();

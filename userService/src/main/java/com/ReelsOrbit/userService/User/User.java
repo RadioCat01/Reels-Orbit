@@ -1,5 +1,6 @@
 package com.ReelsOrbit.userService.User;
 
+import com.ReelsOrbit.userService.Comments.Comment;
 import com.ReelsOrbit.userService.Movie.Movie;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -21,11 +22,13 @@ public class User {
     @GeneratedValue
     private Integer id;
 
+    @Column(nullable = false, unique = true)
     private String userId;
+
     private String Email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("user-movie")
     private List<Movie> movies = new ArrayList<>();
 
 }

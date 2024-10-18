@@ -39,19 +39,19 @@ services:
       - zipkin
       - mail-dev
 
-  #postgres:
-    #container_name: ReelsOrbit-postgres
-    #image: postgres
-    #environment:
-      #POSTGRES_USER: username
-      #POSTGRES_PASSWORD: password
-      #PGDATA: /data/postgres
-    #volumes:
-      #- postgres:/data/postgres
-    #ports:
-      #- "5432:5432"
-    #networks:
-      #- ReelsOrbit
+  postgres:
+    container_name: ReelsOrbit-postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - ReelsOrbit
 
   zipkin:
     container_name: ReelsOrbit-zipkin

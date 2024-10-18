@@ -26,7 +26,7 @@ public class MovieMapper {
                 .adult(movie.getAdult())
                 .release_date(movie.getRelease_date())
                 .backdrop_path(movie.getBackdrop_path())
-                .userId(movie.getUserId())
+                .persistingUserId(movie.getPersistingUserId())
                 .email(movie.getEmail())
                 .user(user)
                 .price(finalPrice.doubleValue())
