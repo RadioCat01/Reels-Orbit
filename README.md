@@ -9,36 +9,42 @@ https://github.com/user-attachments/assets/352ec47f-bf2c-415d-9926-d9ded84188c2
 ### Service Imformation
 #### Payment Service Environmental Variables ( Spring Profile - dev )
     SPRING_PROFILES_ACTIVE=dev
-    datasource-url-Pg=jdbc:postgresql://localhost:5432/payment
-    datasource-username-pg=username
-    datasource-password-pg=password
+    datasource-url-Pg
+    datasource-username-pg=
+    datasource-password-pg=
 
-    paypal-client-id=AbjzUpp06dy-_V9FgZnZUqVKQdwqKNkVI6satiVDqMgbiHVVFo0N2gw6NI9xtWNvhwRf0r5QGfJrwO8c
-    paypal-client-secret=EAsRr46qOtOy9hgAI8fOJ2kyKhzsgvU3fqXstSHUuorAgkGgCKWouTx4oyE5Czh9hxodzKf4LPma_CfL
+    paypal-client-id=
+    paypal-client-secret=
 
-    paypal-success-url=http://localhost:8053/payments/success
-    paypal-cancel-url=http://localhost:8053/payments/cancel
-    payment-success-frontend-url=http://localhost:5173/paymentSuccess/
-    paypal-cancel-frontend-url=http://localhost:5173/paymentCanceled/
+    paypal-success-url=
+    paypal-cancel-url=
+    payment-success-frontend-url=
+    paypal-cancel-frontend-url=
 
-    eureka-default-zone=http://localhost:8761/eureka
-    kafka-bootstrap-server=localhost:9092
+    eureka-default-zone=
+    kafka-bootstrap-server=
+    
 #### Payment Service Environmental Variables ( Spring Profile - prod )
     SPRING_PROFILES_ACTIVE=prod
-    gcp-project-id=reels-orbit
-    gcp-sql-instance-connection-name=reels-orbit:asia-south2:reels-orbit-sql
-    gcp-sql-database-name=payment
-    gcp-credentials-location=file:/app/config/credentials.json
-    datasource-username-CSQL=postgres
-    datasource-password-CSQL=password
-    eureka-default-zone=http://discovery:8761/eureka
-    kafka-bootstrap-server=ReelsOrbit-kafka:29092
-    paypal-client-id=AbjzUpp06dy-_V9FgZnZUqVKQdwqKNkVI6satiVDqMgbiHVVFo0N2gw6NI9xtWNvhwRf0r5QGfJrwO8c
-    paypal-client-secret=EAsRr46qOtOy9hgAI8fOJ2kyKhzsgvU3fqXstSHUuorAgkGgCKWouTx4oyE5Czh9hxodzKf4LPma_CfL
-    paypal-success-url=http://localhost:8053/payments/success
-    paypal-cancel-url=http://localhost:8053/payments/cancel
-    payment-success-frontend-url=http://localhost:5173/paymentSuccess/
-    paypal-cancel-frontend-url=http://localhost:5173/paymentCanceled/
+
+    # Google Cloud SQL
+    gcp-project-id=
+    gcp-sql-instance-connection-name=
+    gcp-sql-database-name=
+    gcp-credentials-location=file:
+    datasource-username-CSQL=
+    datasource-password-CSQL=
+    
+    eureka-default-zone=
+    
+    kafka-bootstrap-server=
+    
+    paypal-client-id=
+    paypal-client-secret=
+    paypal-success-url=
+    paypal-cancel-url=
+    payment-success-frontend-url=
+    paypal-cancel-frontend-url=
     
 ---
 ### Import From Docker
