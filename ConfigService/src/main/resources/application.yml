@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: native
+  application:
+    name: configServer
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs
+
+server:
+  port: 8083

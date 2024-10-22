@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="securityClient" />
         <module name="discoveryService" />
+        <module name="ConfigService" />
+        <module name="securityClient" />
         <module name="ReactiveSecurity" />
         <module name="EmailService" />
         <module name="PaymentService" />
@@ -18,6 +19,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ConfigService" options="-parameters" />
       <module name="EmailService" options="-parameters" />
       <module name="PaymentService" options="-parameters" />
       <module name="ReactiveSecurity" options="-parameters" />
