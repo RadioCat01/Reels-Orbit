@@ -18,7 +18,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
+    p{
+        margin-left: 250px;
+    }
 }
 .searchTop{
     position: fixed;
@@ -116,6 +119,11 @@ input::placeholder{
         display: flex;
         justify-content: center;
         align-items: center;
+
+        
+    p{
+        margin-left: 20px;
+    }
     }
     .searchTop{
         position: fixed;

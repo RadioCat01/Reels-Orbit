@@ -211,7 +211,7 @@
     
   .bktTopRight{
     margin: 0px;
-    width: 250px;
+    width: 260px;
     display: flex;
     flex-direction: row !important;
     justify-content: space-between;
@@ -225,11 +225,11 @@
   
     .bucketBtn {
       padding: 10px;
-      width: 13%;
+      width: 14%;
       border-radius: 8px;
       width:62px;
-      margin-top: 18px;
-      margin-right: 9px;
+      margin-top: 34px;
+      margin-left: 20px;
     }
   
     .personIcon {
@@ -243,6 +243,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        margin-right: -30px;
         p{
             display: flex;
             flex-direction: row;
@@ -319,7 +320,7 @@
   
     .emptyBkt {
       font-size: 20px;
-      left: -260px;
+      left: -280px;
       top: 50px;
     }
   

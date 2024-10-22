@@ -266,8 +266,8 @@
     .navLeft{
         margin-right: -30px;
         h4{
-            font-size: 12px;
-            margin-right: -30px;
+            font-size: 10px;
+            margin-right: -10px;
         }
     }
     .navRight{
@@ -275,7 +275,7 @@
     }
     .bucketBtn{
         font-size: 10px;
-        margin-bottom: 16px;
+        margin-bottom: 34px;
     }
     .movieSection{
         flex-direction: column;

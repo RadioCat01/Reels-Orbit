@@ -168,7 +168,7 @@
       .search{
         cursor: pointer;
         margin-left: 40px;
-        margin-right: 70px;
+        margin-right: 100px;
     }
     .lout{
         margin-right: -30px;
@@ -180,7 +180,6 @@
         cursor: pointer;
         border: 2px solid rgb(216, 113, 216);
         padding: 8px;
-        border-radius: 15px;
-    
+        border-radius: 15px;    
     }
   }

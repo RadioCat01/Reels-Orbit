@@ -27,11 +27,13 @@ spring:
         timeout: 3000
         writetimeout: 5000
 
+  zipkin:
+    base-url: http://ReelsOrbit-zipkin:9411
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
-
 
 server:
   port: 8054

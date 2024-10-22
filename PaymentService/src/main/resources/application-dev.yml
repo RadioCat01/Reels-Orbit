@@ -1,19 +1,18 @@
 spring:
   application:
     name: PaymentService
-    datasource:
-      url: ${datasource-url-Pg}
-      username: ${datasource-username-pg}
-      password: ${datasource-password-pg}
-      driver-class-name: org.postgresql.Driver
-      jpa:
-      hibernate:
-    ddl-auto: update
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payment
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+  jpa:
+    hibernate:
+      ddl-auto: update
 
-  #jpa:
-    #generate-ddl: true
   #cloud:
     #gcp:
       #project-id: reels-orbit
@@ -23,9 +22,12 @@ spring:
       #credentials:
         #location: file:./reels-orbit-3f2299e99b9d.json
 
-  datasource:
-    username: postgres
-    password: password
+  #datasource:
+    #username: postgres
+    #password: password
+
+  #jpa:
+    #generate-ddl: true
 
   kafka:
     bootstrap-servers: localhost:9092
@@ -34,6 +36,9 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring.json.type.mapping: NotificationRequest:com.ReelsOrbit.PaymentService.notification.NotificationRequest
+
+  zipkin:
+    base-url: http://ReelsOrbit-zipkin:9411
 
 server:
   port: 8053
