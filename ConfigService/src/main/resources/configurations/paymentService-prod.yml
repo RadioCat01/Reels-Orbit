@@ -20,7 +20,7 @@ spring:
       project-id: ${gcp-project-id}
       sql:
         instance-connection-name: ${gcp-sql-instance-connection-name}
-        database-name: ${gcp-sql-database-name}
+        database-name: ${gcp-sql-database-name-paymentService}
       credentials:
         location: ${gcp-credentials-location}
 
@@ -42,7 +42,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: ${eureka-default-zone}
+      defaultZone: ${eureka-client-to-server-url}
 
 paypal:
   client-id: ${paypal-client-id}

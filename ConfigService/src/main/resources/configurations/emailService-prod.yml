@@ -3,7 +3,7 @@ spring:
     name: EmailService
   kafka:
     consumer:
-      bootstrap-servers: ReelsOrbit-kafka:29092
+      bootstrap-servers: ${kafka-bootstrap-server}
       group-id: orderGroup
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -12,7 +12,7 @@ spring:
         spring.json.trusted.packages: '*'
         spring.json.type.mapping: NotificationRequest:com.ReelsOrbit.EmailService.Kafka.NotificationRequest
   mail:
-    host: ReelsOrbit-mail
+    host: ${mail-host}
     port: 1025
     username: username
     password: password
@@ -28,12 +28,12 @@ spring:
         writetimeout: 5000
 
   zipkin:
-    base-url: http://ReelsOrbit-zipkin:9411
+    base-url: ${zipkin-base-url}
 
 eureka:
   client:
     service-url:
-      defaultZone: http://ReelsOrbit-discoveryService:8761/eureka
+      defaultZone: ${eureka-client-to-server-url}
 
 server:
   port: 8054

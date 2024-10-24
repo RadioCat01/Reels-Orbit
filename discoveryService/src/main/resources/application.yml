@@ -1,10 +1,11 @@
 spring:
   config:
-    import: optional:configserver:http://localhost:8083
+    import:
+      - optional:configserver:http://localhost:8083
   application:
     name: discoveryService
   profiles:
-    active: dev
+    active: prod
 
 
 #eureka:
