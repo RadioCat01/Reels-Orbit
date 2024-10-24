@@ -7,7 +7,7 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath:/configs
+          search-locations: classpath:/configurations
 
 server:
   port: 8083

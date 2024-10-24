@@ -3,5 +3,5 @@ spring:
     import: optional:configserver:http://localhost:8083
   application:
     name: emailService
-  profiles:
-    active: dev
+  #profiles:
+    #active: dev
