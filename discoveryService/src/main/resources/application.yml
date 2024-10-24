@@ -3,6 +3,8 @@ spring:
     import: optional:configserver:http://localhost:8083
   application:
     name: discoveryService
+  profiles:
+    active: dev
 
 
 #eureka:

@@ -2,8 +2,6 @@ spring:
   cloud:
     config:
       override-system-properties: false
-name:
-  value: ReelsOrbit
 eureka:
   client:
     service-url:
