@@ -1,0 +1,35 @@
+spring:
+  zipkin:
+    base-url: ${zipkin-base-url}
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${google-client-id}
+            client-secret: ${google-client-secret}
+          facebook:
+            client-id: ${facebook.client-id}
+            client-secret: ${facebook.client-secret}
+            scope:
+              - email
+              - public_profile
+          twitter:
+            client-id: ${twitter.client-id}
+            client-secret: Z9K7TF-PQn1CAtGY4BDywFrrdiCg7PTyzBBP7N6PcdTiFgYNlJ
+            scope: ${twitter.scope}
+            authorization-grant-type: ${twitter.authorization-grant-type}
+            redirect-uri: ${twitter.redirect-uri}
+        provider:
+          twitter:
+            authorization-uri: ${twitter.authorization-uri}
+            token-uri: ${twitter.token-uri}
+            user-info-uri: ${twitter.user-info-uri}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${eureka-client-to-server-url}
+
+feing-user-service-name: ${feing-user-service-name}
+feing-user-service-url: ${feing-user-service-url}

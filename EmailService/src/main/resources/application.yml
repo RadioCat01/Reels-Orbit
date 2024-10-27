@@ -5,4 +5,4 @@ spring:
   application:
     name: emailService
   profiles:
-    active: prod
+    active: dev

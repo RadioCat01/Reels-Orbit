@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: PaymentService
+      #datasource:
+      #url: ${datasource-url-Pg}
+      #username: ${datasource-username-pg}
+      #password: ${datasource-password-pg}
+      #driver-class-name: org.postgresql.Driver
+      #jpa:
+      #hibernate:
+    #ddl-auto: update
+    #database: postgresql
+    #database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  jpa:
+    generate-ddl: true
+
+  cloud:
+    gcp:
+      project-id: ${gcp-project-id}
+      sql:
+        instance-connection-name: ${gcp-sql-instance-connection-name}
+        database-name: ${gcp-sql-database-name-paymentService}
+      credentials:
+        location: ${gcp-credentials-location}
+
+  datasource:
+    username: ${datasource-username-CSQL}
+    password: ${datasource-password-CSQL}
+
+  kafka:
+    bootstrap-servers: ${kafka-bootstrap-server}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: NotificationRequest:com.ReelsOrbit.PaymentService.notification.NotificationRequest
+
+server:
+  port: 8053
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${eureka-client-to-server-url}
+
+paypal:
+  client-id: ${paypal-client-id}
+  client-secret: ${paypal-client-secret}
+  mode: sandbox
+
+paypal-success-url: ${paypal-success-url}
+paypal-cancel-url: ${paypal-cancel-url}
+payment-success-frontend-url: ${payment-success-frontend-url}
+paypal-cancel-frontend-url: ${paypal-cancel-frontend-url}

@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: userService
+
+  # datasource:
+  #   url: ${datasource-url-Pg}
+  #   username: ${datasource-username-pg}
+  #   password: ${datasource-password-pg}
+  #   jpa:
+  #     hibernate:
+  #       ddl-auto: update
+
+  cloud:
+    gcp:
+      project-id: ${gcp-project-id}
+      sql:
+        instance-connection-name: ${gcp-sql-instance-connection-name}
+        database-name: ${gcp-sql-database-name-userService}
+
+  datasource:
+    username: ${datasource-username-CSQL}
+    password: ${datasource-password-CSQL}
+
+  jpa:
+    generate-ddl: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${eureka-client-to-server-url}
+
+server:
+  port: 8081
+
+feing-payment-service: ${feing-payment-service}
+feing-payment-service-url: ${feing-payment-service-url}
