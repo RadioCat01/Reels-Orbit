@@ -1,5 +1,6 @@
 package com.ReelsOrbit.userService.User;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
+    @CircuitBreaker(name = "ReelsOrbitCircuitBreaker")
     public String addUser(@RequestBody User user) {
         if(!userRepository.existsByUserId(user.getUserId())) {
             userRepository.save(user);

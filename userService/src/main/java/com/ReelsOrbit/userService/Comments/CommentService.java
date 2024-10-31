@@ -2,6 +2,7 @@ package com.ReelsOrbit.userService.Comments;
 
 import com.ReelsOrbit.userService.Movie.Movie;
 import com.ReelsOrbit.userService.Movie.MovieRepository;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,7 @@ public class CommentService {
         commentRepository.deleteById(commentId);
     }
 
+    @RateLimiter(name = "ReelsOrbitCircuitBreaker")
     public String addLike(LikeRequest request) {
         Optional<Comment> comment = commentRepository.findById(request.commentId());
         if (comment.isPresent()) {
