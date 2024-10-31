@@ -5,9 +5,9 @@ services:
     ports:
       - "5173:5173"
     environment:
-      - VITE_USER_API_URL=http://ReelsOrbit_User:8081
+      - VITE_USER_API_URL=http://localhost:8081
       - VITE_MOVIEDB_API_KEY=451f5c6580786f25788cd5071631a6aa
-      - VITE_SECURITY_API_URL=http://ReelsOrbit_security:8080
+      - VITE_SECURITY_API_URL=http://localhost:8080
       - VITE_ADMIN_USERNAME=admin
       - VITE_ADMIN_PASSWORD=radiocat
   discovery:
