@@ -67,6 +67,22 @@ services:
     depends_on:
       - zipkin
 
+  ReelsOrbitUser:
+    container_name: ReelsOrbit_User
+    image: radiocat2000/reels_orbit_user:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=doc
+    networks:
+      - ReelsOrbit
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+      - kafka
+      - zookeeper
+      - zipkin
+      - discovery
+
   postgres:
     container_name: ReelsOrbit-postgres
     image: postgres
