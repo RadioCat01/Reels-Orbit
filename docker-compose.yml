@@ -41,6 +41,20 @@ services:
       - zipkin
       - mail-dev
 
+  ReelsOrbitEmail:
+    container_name: ReelsOrbit_Email
+    image: radiocat2000/reels_orbit_email:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=doc
+    networks:
+      - ReelsOrbit
+    ports:
+      - "8054:8054"
+    depends_on:
+      - kafka
+      - zookeeper
+      - zipkin
+
   postgres:
     container_name: ReelsOrbit-postgres
     image: postgres
