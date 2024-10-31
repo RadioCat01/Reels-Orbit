@@ -1,0 +1,78 @@
+spring:
+  application:
+    name: userService
+
+  zipkin:
+    base-url: http://ReelsOrbit-zipkin:9411
+
+  datasource:
+    url: jdbc:postgresql://ReelsOrbit-postgres:5432/users
+    username: username
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      ReelsOrbitCircuitBreaker:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        automatic-transition-from-open-to-half-open-enabled: true
+        sliding-window-type: count_based
+
+  retry:
+    instances:
+      NewsAPiCircuitBreaker:
+        max-attempts: 5
+        wait-duration: 2s
+
+  ratelimiter:
+    instance:
+      NewsAPiCircuitBreaker:
+        timeout-duration: 100s
+        limit-refresh-period: 4
+        limit-for-period: 1
+
+  # cloud:
+  #   gcp:
+  #     project-id: reels-orbit
+  #     sql:
+  #       instance-connection-name: reels-orbit:asia-south2:reels-orbit-sql
+  #       database-name: users
+  #   generate-ddl: true
+  #   datasource:
+  #     username: postgres
+  #     password: password
+
+  # credentials:
+  #   location: file:./userService/reels-orbit-3f2299e99b9d.json
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ReelsOrbit-discoveryService:8761/eureka
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health"
+  endpoint:
+    health:
+      show-details: "always"
+  health:
+    circuitbreakers:
+      enabled: "true"
+
+feing-payment-service: PaymentService
+feing-payment-service-url: http://ReelsOrbit-paymentService:8053/payments/create
