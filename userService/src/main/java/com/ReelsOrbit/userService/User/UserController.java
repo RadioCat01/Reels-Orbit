@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
-
 public class UserController {
 
     private final UserRepo userRepository;

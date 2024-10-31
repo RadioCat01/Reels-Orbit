@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: PaymentService
+
+  datasource:
+    url: jdbc:postgresql://ReelsOrbit-postgres:5432/payment
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  #cloud:
+    #gcp:
+      #project-id: reels-orbit
+      #sql:
+        #instance-connection-name: reels-orbit:asia-south2:reels-orbit-sql
+        #database-name: payment
+      #credentials:
+        #location: file:./reels-orbit-3f2299e99b9d.json
+
+  #datasource:
+    #username: postgres
+    #password: password
+
+  #jpa:
+    #generate-ddl: true
+
+  kafka:
+    bootstrap-servers: ReelsOrbit-kafka:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: NotificationRequest:com.ReelsOrbit.PaymentService.notification.NotificationRequest
+
+  zipkin:
+    base-url: http://ReelsOrbit-zipkin:9411
+
+server:
+  port: 8053
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ReelsOrbit-discoveryService:8761/eureka
+
+paypal:
+  client-id: AbjzUpp06dy-_V9FgZnZUqVKQdwqKNkVI6satiVDqMgbiHVVFo0N2gw6NI9xtWNvhwRf0r5QGfJrwO8c
+  client-secret: EAsRr46qOtOy9hgAI8fOJ2kyKhzsgvU3fqXstSHUuorAgkGgCKWouTx4oyE5Czh9hxodzKf4LPma_CfL
+  mode: sandbox
+
+paypal-success-url: http://localhost:8053/payments/success
+paypal-cancel-url: http://localhost:8053/payments/cancel
+payment-success-frontend-url: http://ReelsOrbit-Web:5173/paymentSuccess/
+paypal-cancel-frontend-url: http://ReelsOrbit-Web:5173/paymentCanceled/
