@@ -30,6 +30,7 @@
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.3</spring-cloud.version>
 		<spring-cloud-gcp.version>5.7.0</spring-cloud-gcp.version>
+		<spring-ai.version>1.0.0-M3</spring-ai.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -44,6 +45,13 @@
 				<groupId>com.google.cloud</groupId>
 				<artifactId>spring-cloud-gcp-dependencies</artifactId>
 				<version>${spring-cloud-gcp.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.ai</groupId>
+				<artifactId>spring-ai-bom</artifactId>
+				<version>${spring-ai.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

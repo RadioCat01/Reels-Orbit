@@ -3,7 +3,7 @@
 
 https://github.com/user-attachments/assets/352ec47f-bf2c-415d-9926-d9ded84188c2
 
-![Reels-Orbit](https://github.com/user-attachments/assets/361f9264-0cc8-4853-8fce-feb626666593)
+![new](https://github.com/user-attachments/assets/a942c754-7643-4cf2-8ffc-725d7e94f0b0)
 
 ---
 ### Service Imformation
@@ -65,45 +65,76 @@ https://github.com/user-attachments/assets/352ec47f-bf2c-415d-9926-d9ded84188c2
     
     feing-user-service-name=
     feing-user-service-url=
----
-### Import From Docker
-#### docker-compose.yml
 
+#### Frontend - React + Vite Application
+    VITE_USER_API_URL=
+    VITE_MOVIEDB_API_KEY=
+    VITE_SECURITY_API_URL=
+    VITE_ADMIN_USERNAME=
+    VITE_ADMIN_PASSWORD=
+---
+### Install Instructions
+
+#### Step 1: Credentials
+Setup Google Cloud SQL
+Setup Google Cloud Console + Project 
+Setup Meta Developer Console + App
+Credentials for Open Authentication
+MovieDB API Key
+
+### Step 2: Import From Docker
+SPRING_PROFILES_ACTIVE=**doc** is an quick run sping profile with minimum enviorenmental variables.
+SPRING_PROFILES_ACTIVE=**prod** requires OAuth Credentials + GCP SQL Credentials
+
+#### docker-compose.yml
 ```
 #Current
 version: v1
 services:
+  Reels-Orbit-Web:
+    image: radiocat2000/reels_orbit_web
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_USER_API_URL=http://localhost:8081
+      - VITE_MOVIEDB_API_KEY=
+      - VITE_SECURITY_API_URL=http://localhost:8080
+      - VITE_ADMIN_USERNAME=admin
+      - VITE_ADMIN_PASSWORD=radiocat
   discovery:
-    image: radiocar2000/reels-orbit-discoveryservice:latest
+    image: radiocat2000/reels_orbit_discovery:latest
     container_name: ReelsOrbit-discoveryService
     ports:
       - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
     networks:
       - ReelsOrbit
 
   payment-service:
-    image: radiocat2000/reels-orbit-paymentservice:latest
+    image: radiocat2000/reels_orbit_payment:latest
     container_name: ReelsOrbit-paymentService
     ports:
       - "8053:8053"
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
-      - gcp-project-id=reels-orbit
-      - gcp-sql-instance-connection-name=reels-orbit:asia-south2:reels-orbit-sql
-      - gcp-sql-database-name=payment
-      - gcp-credentials-location=file:/app/config/credentials.json
-      - datasource-username-CSQL=postgres
-      - datasource-password-CSQL=password
-      - eureka-default-zone=http://discovery:8761/eureka
-      - kafka-bootstrap-server=ReelsOrbit-kafka:29092
-      - paypal-client-id=
-      - paypal-client-secret=
-      - paypal-success-url=
-      - paypal-cancel-url=
-      - payment-success-frontend-url=http://localhost:5173/paymentSuccess/
-      - paypal-cancel-frontend-url=http://localhost:5173/paymentCanceled/
-    volumes:
-      - ./reels-orbit-3f2299e99b9d.json:/app/config/credentials.json
+      - SPRING_PROFILES_ACTIVE=doc
+      #- SPRING_PROFILES_ACTIVE=prod
+      #- gcp-project-id=
+      #- gcp-sql-instance-connection-name=
+      #- gcp-sql-database-name=
+      #- gcp-credentials-location=
+      #- datasource-username-CSQL=
+      #- datasource-password-CSQL=
+      #- eureka-default-zone=
+      #- kafka-bootstrap-server=
+      #- paypal-client-id=
+      #- paypal-client-secret=
+      #- paypal-success-url=
+      #- paypal-cancel-url=
+      #- payment-success-frontend-url=
+      #- paypal-cancel-frontend-url=
+    #volumes:
+      #- ./reels-orbit-3f2299e99b9d.json:/app/config/credentials.json
     networks:
       - ReelsOrbit
     depends_on:
@@ -111,6 +142,76 @@ services:
       - zookeeper
       - zipkin
       - mail-dev
+
+  ReelsOrbitEmail:
+    container_name: ReelsOrbit_Email
+    image: radiocat2000/reels_orbit_email:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=doc
+    networks:
+      - ReelsOrbit
+    ports:
+      - "8054:8054"
+    depends_on:
+      - kafka
+      - zookeeper
+      - zipkin
+
+  ReelsOrbitSecurity:
+    container_name: ReelsOrbit_security
+    image: radiocat2000/reels_orbit_security:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=doc
+      #- SPRING_PROFILES_ACTIVE=prod
+      #- google-client-id=
+      #- google-client-secret=
+      #- facebook.client-id=
+      #- facebook.client-secret=
+      #- twitter.client-id=
+      #- twitter.client-secret=
+      #- twitter.scope=
+      #- twitter.authorization-grant-type=
+      #- twitter.redirect-uri=
+      #- twitter.authorization-uri=
+      #- twitter.token-uri=
+      #- twitter.user-info-uri=
+      #- feing-user-service-name=
+      #- feing-user-service-url=
+    networks:
+      - ReelsOrbit
+    ports:
+      - "8080:8080"
+    depends_on:
+      - zipkin
+
+  ReelsOrbitUser:
+    container_name: ReelsOrbit_User
+    image: radiocat2000/reels_orbit_user:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=doc
+      #- SPRING_PROFILES_ACTIVE=prod
+      #- gcp-project-id=
+      #- gcp-sql-instance-connection-name=
+      #- gcp-sql-database-name=
+      #- datasource-username-CSQL=
+      #- datasource-password-CSQL=
+      #- gcp-credentials-location=
+      #- datasource-url-Pg=
+      #- datasource-username-pg=
+      #- datasource-password-pg=
+      #- feing-payment-service=
+      #- feing-payment-service-url=
+      # eureka.client.service-url.defaultZone=
+    networks:
+      - ReelsOrbit
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+      - kafka
+      - zookeeper
+      - zipkin
+      - discovery
 
   postgres:
     container_name: ReelsOrbit-postgres
@@ -174,4 +275,7 @@ networks:
 
 volumes:
   postgres:
+  
 ```
+---
+
