@@ -19,7 +19,7 @@ function BucketPop({movie, user}) {
 
     useEffect(()=>{
       console.log(user);
-    },[user])
+    },[user]) //Executes when changing user variable
    
     const handlePayment = async() => {
       setLoading(true);
