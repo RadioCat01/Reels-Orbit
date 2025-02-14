@@ -3,6 +3,8 @@ package com.RO.ReelsOrbitMonolithic.Comments;
 import com.RO.ReelsOrbitMonolithic.Movie.Movie;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +26,8 @@ public class Comment {
     @GeneratedValue
     private Integer commentId;
 
+    @NotEmpty(message = "Comment Should not be null")
+    @NotNull(message = "Comment Should not be null")
     private String comment;
 
     private String userEmail;

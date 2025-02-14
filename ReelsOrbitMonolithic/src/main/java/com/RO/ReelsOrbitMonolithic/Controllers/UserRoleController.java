@@ -8,6 +8,7 @@ import com.RO.ReelsOrbitMonolithic.Movie.Movie;
 import com.RO.ReelsOrbitMonolithic.Movie.MovieService;
 import com.RO.ReelsOrbitMonolithic.User.User;
 import com.RO.ReelsOrbitMonolithic.User.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
@@ -24,7 +25,7 @@ public class UserRoleController {
 
 
     @PostMapping("/comment")
-    public ResponseEntity<String> addComment(@RequestBody Comment comment) {
+    public ResponseEntity<String> addComment(@RequestBody @Valid Comment comment) {
         return ResponseEntity.ok(commentService.save(comment));
     }
 
