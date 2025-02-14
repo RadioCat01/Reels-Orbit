@@ -40,7 +40,7 @@ public class MovieService {
         return "Movie saved successfully!";
     }
 
-    public ResponseEntity<List<Movie>> getMoviesById(String userId) {
+    public ResponseEntity<List<Movie>> getMoviesById(int userId) {
         List<Movie> movies = movieRepository.findByPersistingUserId(userId);
 
         if (movies.isEmpty()) {

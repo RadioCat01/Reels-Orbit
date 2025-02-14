@@ -36,7 +36,7 @@ public class Movie {
     private String backdrop_path;
     private Double price;
 
-    private String persistingUserId;
+    private int persistingUserId;
     private String email;
 
     @ManyToOne

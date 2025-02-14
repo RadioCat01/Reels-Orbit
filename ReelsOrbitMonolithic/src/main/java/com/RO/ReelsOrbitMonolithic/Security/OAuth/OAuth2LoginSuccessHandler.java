@@ -66,7 +66,6 @@ public class OAuth2LoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 
             userService.findByEmail(email)
                     .ifPresentOrElse(user -> {
-
                         List<GrantedAuthority> authorities = user.getRoles().stream()
                                 .map(role -> new SimpleGrantedAuthority(role.getRoleName()))
                                 .collect(Collectors.toList());
@@ -84,14 +83,12 @@ public class OAuth2LoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 
                         SecurityContextHolder.getContext().setAuthentication(securityAuth);
                     }, () -> {
-
                         User newUser = new User();
                         Optional<Role> userRole = roleRepository.findByRoleName("ROLE_USER");
 
                         if (userRole.isPresent()) {
                             newUser.setRoles(userRole.stream().toList());
                         } else {
-
                             throw new RuntimeException("Default role not found");
                         }
 
@@ -124,8 +121,6 @@ public class OAuth2LoginSuccessHandler extends SavedRequestAwareAuthenticationSu
         Map<String, Object> attributes = oauth2User.getAttributes();
 
         String email = (String) attributes.get("email");
-        System.out.println("OAuth2LoginSuccessHandler: " + username + " : " + email);
-
         Optional<Role> userRole = roleRepository.findByRoleName("ROLE_USER");
 
         User user = User.builder()
@@ -136,7 +131,6 @@ public class OAuth2LoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 
         // Generate JWT token
         String jwtToken = jwtUtils.generateTokenFromUsername(user);
-        System.out.println("JWT: " + jwtToken);
 
         // Redirect to the frontend with the JWT token
         String targetUrl = UriComponentsBuilder.fromUriString("http://localhost:5173")

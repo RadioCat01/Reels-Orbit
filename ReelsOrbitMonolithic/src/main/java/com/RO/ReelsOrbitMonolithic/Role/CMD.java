@@ -12,14 +12,14 @@ import java.util.List;
 
 @Configuration
 public class CMD {
-//    @Bean
-//    public CommandLineRunner commandLineRunner(UserRepo userRepository, RoleRepository RoleRepository) {
-//        return args -> {
-//            Role Admin_role = Role.builder().role_name("ROLE_ADMIN").build();
-//            Role User_Role = Role.builder().role_name("ROLE_USER").build();
-//
-//            RoleRepository.saveAll(List.of(Admin_role, User_Role));
-//
+    @Bean
+    public CommandLineRunner commandLineRunner(UserRepo userRepository, RoleRepository RoleRepository) {
+        return args -> {
+            Role Admin_role = Role.builder().roleName("ROLE_ADMIN").build();
+            Role User_Role = Role.builder().roleName("ROLE_USER").build();
+
+            RoleRepository.saveAll(List.of(Admin_role, User_Role));
+
 //            User user1 = User.builder()
 //                    .username("admin")
 //                    .email("admin@gmail.com")
@@ -35,8 +35,8 @@ public class CMD {
 //                    .build();
 //
 //            userRepository.saveAll(List.of(user1, user2));
-//        };
-//    }
+        };
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
