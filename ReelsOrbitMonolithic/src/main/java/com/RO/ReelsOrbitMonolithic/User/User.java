@@ -5,6 +5,8 @@ import com.RO.ReelsOrbitMonolithic.Movie.Movie;
 import com.RO.ReelsOrbitMonolithic.Role.Role;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,7 +32,13 @@ public class User implements UserDetails, Principal {
     private Integer userId;
 
     @Column(unique = true)
+    @NotNull(message = "User Name must not be empty")
+    @NotEmpty(message = "User Name must not be empty")
     private String username;
+
+    @NotNull(message = "Password must not be empty")
+    @NotEmpty(message = "Password must not be empty")
+    @Column(unique = true)
     private String password;
     private String email;
 

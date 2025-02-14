@@ -1,9 +1,12 @@
-package com.RO.ReelsOrbitMonolithic.Security.UserPasswordAuth;
+package com.RO.ReelsOrbitMonolithic.Controllers;
 
+import com.RO.ReelsOrbitMonolithic.Security.UserPasswordAuth.JwtUtils;
+import com.RO.ReelsOrbitMonolithic.Security.UserPasswordAuth.LoginRequest;
+import com.RO.ReelsOrbitMonolithic.Security.UserPasswordAuth.LoginResponse;
 import com.RO.ReelsOrbitMonolithic.User.User;
 import com.RO.ReelsOrbitMonolithic.User.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,11 +16,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +35,7 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/addUser")
-    public String AddUser(@RequestBody User user) {
+    public String AddUser(@RequestBody @Valid User user) {
         return userService.registerUser(user);
     }
 
@@ -66,4 +67,5 @@ public class AuthController {
 
         return ResponseEntity.ok(response);
     }
+
 }

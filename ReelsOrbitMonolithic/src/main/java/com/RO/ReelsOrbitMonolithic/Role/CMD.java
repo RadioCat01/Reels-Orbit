@@ -15,10 +15,10 @@ public class CMD {
     @Bean
     public CommandLineRunner commandLineRunner(UserRepo userRepository, RoleRepository RoleRepository) {
         return args -> {
-            Role Admin_role = Role.builder().roleName("ROLE_ADMIN").build();
-            Role User_Role = Role.builder().roleName("ROLE_USER").build();
-
-            RoleRepository.saveAll(List.of(Admin_role, User_Role));
+//            Role Admin_role = Role.builder().roleName("ROLE_ADMIN").build();
+//            Role User_Role = Role.builder().roleName("ROLE_USER").build();
+//
+//            RoleRepository.saveAll(List.of(Admin_role, User_Role));
 
 //            User user1 = User.builder()
 //                    .username("admin")
