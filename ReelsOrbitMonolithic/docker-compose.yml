@@ -11,6 +11,12 @@ services:
       - postgres:/data/postgres
     ports:
       - "5432:5432"
+  mail-dev:
+    container_name: ReelsOrbit-mail
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
 volumes:
   postgres:
     driver: local
